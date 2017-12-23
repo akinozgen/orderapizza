@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<!--[if IE 7 ]>    <html lang="en-gb" class="isie ie7 oldie no-js"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en-gb" class="isie ie8 oldie no-js"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en-gb" class="isie ie9 no-js"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en-gb" xml:lang="en-gb" class="no-js"> <!--<![endif]-->
+
+<head>
+	<meta charset="utf-8">
+    <!--[if lt IE 9]> 
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <![endif]-->
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="Aleš Trunda alestrunda.cz">
+    <meta name="robots" content="index, follow">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+
+    <!--[if lt IE 9]>
+        <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+    <!-- Icon-Font -->
+    <link rel="stylesheet" href="assets/font-awesome/font-awesome/css/font-awesome.min.css" type="text/css">
+    <!--[if IE 7]>
+    	<link rel="stylesheet" href="assets/font-awesome/font-awesome/css/font-awesome-ie7.min.css" type="text/css">
+    <![endif]-->
+    
+    <!-- Google Fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Vollkorn:400,700,400italic,700italic%7CPlayfair+Display:400,700' rel='stylesheet' type='text/css'>
+    
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="assets/owl-carousel2/assets/owl.carousel.css" type="text/css">
+    <link rel="stylesheet" href="assets/flexslider/flexslider.css" type="text/css">
+    <link rel="stylesheet" href="assets/lightbox/css/lightbox.css" type="text/css">
+    <link rel="stylesheet" href="assets/styles/main.css" type="text/css">
+    <link rel="stylesheet" href="assets/styles/white.css" type="text/css">
+    
+	<title>Pizzeria</title>
+    
+    <script type="text/javascript" src="assets/js/modernizr-custom.min.js"></script>
+</head>
+
+<body>
+	<div id="page-loader" class="bg-pattern bg-white">
+    	<div class="page-loader-content">
+            <div id="loader-pizza-corpus">
+				<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="200px" height="200px" viewBox="0 0 128.917 127.773" style="enable-background:new 0 0 128.917 127.773;" xml:space="preserve"> <path d="M112.148,43.321c10.551,21.945,2.659,49.678-17.838,63.816c-21.246,14.655-50.346,12.235-68.023-6.434 C8.099,81.495,5.735,55.679,21.392,33.442C35.476,13.434,63.444,7.15,83.121,15.859c-6.193,15.873-12.396,31.774-18.869,48.367 C80.627,57.078,96.305,50.234,112.148,43.321z M81.305,91.321c-0.007,4.149,3.154,7.36,7.266,7.386 c4.061,0.024,7.272-3.229,7.277-7.373c0.004-4.104-3.27-7.261-7.458-7.194C84.325,84.205,81.313,87.258,81.305,91.321z M39.819,39.253c4.004,0.151,7.538-3.104,7.688-7.078c0.148-3.904-2.925-7.158-6.96-7.365c-4.212-0.215-7.582,2.698-7.865,6.809 C32.417,35.445,35.832,39.099,39.819,39.253z M70.039,89.749c4.184,0.029,7.443-3.131,7.402-7.175 c-0.04-3.969-3.159-7.051-7.171-7.088c-4.269-0.043-7.598,2.997-7.641,6.973C62.586,86.372,65.992,89.722,70.039,89.749z M90.937,59.303c-4.067-0.042-7.361,2.978-7.505,6.874c-0.146,3.944,3.3,7.498,7.285,7.508c4.105,0.01,7.492-3.295,7.487-7.312 C98.198,62.432,95.023,59.342,90.937,59.303z M29.295,95.366c0.007,4.042,3.062,7.148,7.089,7.22 c4.083,0.07,7.361-3.215,7.339-7.356c-0.021-3.995-3.2-7.188-7.152-7.183C32.274,88.052,29.288,91.056,29.295,95.366z M57.163,40.076c-4.235,0.009-7.343,3.131-7.292,7.326c0.048,3.971,3.203,6.975,7.335,6.986c4.162,0.01,7.337-3.197,7.288-7.365 C64.448,43.092,61.258,40.068,57.163,40.076z M24.585,68.434c3.864-0.015,7.275-3.323,7.334-7.11 c0.063-4.043-3.318-7.384-7.419-7.328c-4.104,0.052-7.446,3.427-7.346,7.423C17.251,65.257,20.632,68.451,24.585,68.434z M108.358,70.354c2.906-0.019,5.021-2.196,4.986-5.14c-0.036-2.979-2.121-5.058-5.087-5.067c-2.96-0.012-5.402,2.436-5.304,5.316 C103.044,68.186,105.456,70.368,108.358,70.354z M82.602,104.217c-0.087-2.812-2.385-4.898-5.323-4.833 c-3.054,0.065-5.095,2.125-5.033,5.074c0.059,2.823,2.444,5.088,5.257,4.987C80.333,109.346,82.686,106.932,82.602,104.217z M72.272,23.711c-0.038-2.855-2.233-4.953-5.169-4.945c-2.922,0.01-5.197,2.166-5.226,4.955c-0.028,2.781,2.599,5.363,5.387,5.292 C69.896,28.944,72.308,26.393,72.272,23.711z M45.63,65.794c-3.117-0.02-5.146,1.849-5.226,4.804 c-0.076,2.784,2.167,5.143,4.972,5.236c2.983,0.098,5.38-2.202,5.369-5.151C50.733,67.696,48.764,65.813,45.63,65.794z"/> <path d="M66.479,0c4.401,0.869,10.418,2.046,16.429,3.255c0.627,0.124,1.492,0.237,1.779,0.664 c0.801,1.19,1.357,2.543,2.009,3.827c-1.352,0.464-2.788,1.482-4.042,1.299C77.012,8.21,71.432,6.192,65.811,6.124 C37.184,5.77,13.934,24.036,7.271,51.561c-7.713,31.861,14.09,63.813,47.59,69.741c27.163,4.804,55.603-11.998,64.422-37.782 c4.439-12.974,5.314-25.753-0.247-38.584c-0.737-1.7-1.083-3.453,1.048-4.379c2.418-1.045,3.508,0.49,4.382,2.472 c6.421,14.54,5.49,29.167-0.219,43.512c-9.896,24.861-29.082,38.496-55.47,40.98c-25.346,2.385-53.667-12.146-64.958-41.848 C-9.063,51.791,11.4,8.901,53.722,1.398C57.33,0.757,61.021,0.583,66.479,0z"/> </svg>
+        	</div>
+            
+            <div id="loader-pizza-piece">
+				<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 58.88 59.156" style="enable-background:new 0 0 58.88 59.156;" xml:space="preserve"> <path d="M18.897,10.835C32.395,16.096,41.72,25.19,47.858,38.322C32.091,45.187,16.523,51.959,0,59.156 C6.493,42.551,12.656,26.792,18.897,10.835z M33.058,24.871c-4.319,0.005-7.261,2.776-7.336,6.919 c-0.077,4.225,3.023,7.432,7.211,7.461c4.173,0.028,7.348-3.144,7.334-7.329C40.254,27.838,37.218,24.868,33.058,24.871z M9.626,43.747c0.009,2.815,2.263,5.077,5.073,5.092c2.644,0.012,5.245-2.498,5.282-5.104c0.042-2.887-2.439-5.253-5.438-5.185 C11.595,38.619,9.617,40.708,9.626,43.747z"/> <path d="M58.88,35.033c-0.597,0.656-1.262,2.029-2.036,2.091c-1.15,0.095-2.899-0.392-3.476-1.238 c-1.799-2.655-2.993-5.703-4.733-8.4c-6.181-9.589-14.721-16.471-25.207-21.027c-0.494-0.218-1.002-0.406-1.514-0.575 c-2.028-0.673-3.275-1.945-2.464-4.111c0.908-2.431,3.011-1.9,4.65-1.098c4.452,2.181,9.049,4.219,13.116,6.992 c9.199,6.279,15.998,14.69,20.686,24.741C58.214,33.079,58.424,33.802,58.88,35.033z"/> </svg>
+        	</div>
+            <div class="page-loader-text">Loading</div>
+        </div>
+    </div><!-- #page-loader -->
+    
+    <div id="screen-cover"></div>
+    
+    <header class="page-header">
+        <div class="page-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <em>Call now: 0 800 - <span class="text-uppercase">Pizza delivery</span></em>
+                    </div>
+                    <div class="col-xs-6 text-right">
+                        Welcome Guest, <a href="#" class="text-uppercase">Sign in</a> | <a href="#" class="text-uppercase">Create new account</a>
+                    </div>
+                </div>
+            </div>
+        </div><!-- .page-top -->
+        <div id="main-navigation-container">
+            <div id="main-navigation-inner">
+                <div class="container">
+                    <div class="relative-container clearfix">
+                        <div id="main-navigation-button"><i class="fa fa-reorder"></i></div>
+                        <div class="pull-left">
+                            <div class="centered-columns">
+                                <div class="centered-column">
+                                    <img class="page-logo" alt="logo" src="assets/images/logo.png">
+                                </div>
+                                <div class="centered-column hidden-xs">
+                                    <h1 class="site-name">FOOD & PIZZERIA</h1>
+                                    <h4 class="site-name-info">Ultimate Delivery HTML Template</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <nav id="main-navigation">
+                            <ul id="one-page-nav">
+                                <li>
+                                    <a href="index.html">Home</a>
+                                    <ul>
+                                    	<li><a href="../dark/index.html">Dark version</a></li>
+                                        <li class="delimiter"></li>
+                                        <li><a href="one_page.html">One-page</a></li>
+                                    	<li><a href="../dark/one_page.html">One-page dark</a></li>
+                                    </ul>
+                                </li>
+                                <li class="active">
+                                    <a href="about.html">About Us</a>
+                                </li>
+                                <li>
+                                    <a href="menu_1.html">Menu</a>
+                                    <ul>
+                                    	<li><a href="menu_2.html">Menu small</a></li>
+                                        <li><a href="menu_3.html">Menu big</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="gallery_1.html">Gallery</a>
+                                    <ul>
+                                    	<li><a href="gallery_2.html">Gallery small</a></li>
+                                        <li><a href="gallery_3.html">Gallery big</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="specials.html">Specials</a>
+                                </li>
+                                <li>
+                                    <a href="#section-delivery">Delivery</a>
+                                </li>
+                                <li>
+                                    <a href="blog.html">Blog</a>
+                                    <ul>
+                                    	<li><a href="blog_single.html">Blog single</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="contact.html">Contact</a>
+                                </li>
+                                <li>
+                                    <div class="menu-item has-small-label cart-trigger"><i class="fa fa-shopping-cart"></i><span class="small-label"><span>2</span></span></div>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div><!-- .relative-container -->
+                </div><!-- .container -->
+            </div><!-- #main-navigation-inner -->
+        </div><!-- #main-navigation-container -->
+        <div id="main-navigation-placeholder"></div>
+    </header>
+
+    <div class="page-title-img">
+        <img class="img-full" alt="page title img" src="assets/images/headers/about.png">
+        <div class="page-title">
+            <div class="container">
+                <h1>About</h1>
+                <p>Lorem ipsum dolor sit amet</p>
+            </div><!-- .container -->
+        </div>
+    </div><!-- .page-title-img -->
+    
+    <section>
+        <div class="container">
+            <h1 class="bottom-line">About us</h1>
+            <p class="text-center"><em>When gliding by the Bashee isles we emerged at last upon the great South Sea.</em></p>
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Our History</h2>
+                    <p>It may be that the primal source of all those pictorial delusions will be found among the oldest Hindoo, Egyptian, and Grecian sculptures. For ever since those inventive but unscrupulous times when on the marble panellings of temples, the pedestals of statues, and on shields, medallions, cups, and coins, the dolphin was drawn in scales of chain-armor like Saladin's, and a helmeted head like St. George's; ever since then has something of the same sort of license prevailed, not only in most popular pictures of the whale, but in many scientific presentations of him.</p>
+                </div>
+                <div class="col-md-6">
+                	<div class="margin-20"></div>
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/rEk0AdJx9gw"></iframe>
+                    </div>
+                </div>
+            </div><!-- .row -->
+
+    		<div class="section-delimiter"></div>
+    
+            <div class="row">
+                <div class="col-md-6">
+                	<div class="slider-single">
+                    	<img alt="store" src="assets/images/store/4.jpg">
+                        <img alt="store" src="assets/images/store/4.jpg">
+                        <img alt="store" src="assets/images/store/4.jpg">
+                	</div>
+                    <div class="margin-20"></div>
+                </div>
+                <div class="col-md-6">
+                    <h2>Amazing Interior</h2>
+                    <p>It may be that the primal source of all those pictorial delusions will be found among the oldest Hindoo, Egyptian, and Grecian sculptures. For ever since those inventive but unscrupulous times when on the marble panellings of temples, the pedestals of statues, and on shields, medallions, cups, and coins, the dolphin was drawn in scales of chain-armor like Saladin's, and a helmeted head like St. George's; ever since then has something of the same sort of license prevailed, not only in most popular pictures of the whale, but in many scientific presentations of him.</p>
+                </div>
+   			</div>
+       	</div>
+    </section>
+    
+    <section class="bg-white bg-pattern">
+        <div class="margin-50"></div>
+        <div class="container">
+            <div class="row centered-columns">
+                <div class="col-md-6 centered-column responsive-column">
+                    <img class="img-responsive" alt="mobile" src="assets/images/mobile.png">
+                </div>
+                <div class="col-md-6 centered-column responsive-column">
+                    <h1>Now availaible for your smartphones</h1>
+                    <p>
+                        It was under very similar circumstances to the first performance; but this time he did not breast out the line; and hence, when the whale started to run, Pip was left behind on the sea, like a hurried traveller's trunk. Alas! Stubb was but too true to his word. It was a beautiful, bounteous, blue day.
+                    </p>
+                    <div class="margin-10"></div>
+                    <a href="#"><img class="btn-store" alt="app store" src="assets/images/mobile_button1.png"></a>
+                    <a href="#"><img class="btn-store" alt="google play" src="assets/images/mobile_button2.png"></a>
+                    <div class="margin-10"></div>
+                </div>
+            </div>
+        </div><!-- .container -->
+        <div class="margin-50"></div>
+    </section>
+    
+    <section>
+        <div class="container">
+            <h1 class="text-center">Our Team</h1>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="worker">
+                            	<div class="worker-head">
+                                    <div class="worker-img">
+                                        <div class="worker-img-layer-1">
+                                            <div class="worker-img-layer-2">
+                                                <div class="worker-img-content">
+                                                    <img alt="worker" src="assets/images/workers/1.jpg">
+                                                    <div class="worker-socials">
+                                                    	<div class="worker-socials-content">
+                                                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                                                            <a href="#"><i class="fa fa-twitter"></i></a>
+                                                            <a href="#"><i class="fa fa-facebook"></i></a>
+                                                    	</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- .worker-img -->
+                                    <div class="worker-label">
+                                        <h4>Tim Robinson</h4>
+                                        <em>Master Chef</em>
+                                    </div>
+                            	</div><!-- .worker-head -->
+                                <p class="worker-note">
+                                    When gliding by the Bashee isles we emerged at last upon the great South Sea.
+                                </p>
+                            </div><!-- .worker -->
+                        </div><!-- .col-sm-6 -->
+                        <div class="col-sm-6">
+                            <div class="worker">
+                            	<div class="worker-head">
+                                    <div class="worker-img-alt">
+                                        <div class="worker-img-layer-1">
+                                            <div class="worker-img-layer-2">
+                                                <div class="worker-img-content">
+                                                    <img alt="worker" src="assets/images/workers/2.jpg">
+                                                    <div class="worker-socials">
+                                                    	<div class="worker-socials-content">
+                                                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                                                            <a href="#"><i class="fa fa-twitter"></i></a>
+                                                            <a href="#"><i class="fa fa-facebook"></i></a>
+                                                    	</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- .worker-img -->
+                                    <div class="worker-label">
+                                        <h4>Hansom Rob</h4>
+                                        <em>Pizza Master</em>
+                                    </div>
+                            	</div><!-- .worker-head -->
+                                <p class="worker-note">
+                                    When gliding by the Bashee isles we emerged at last upon the great South Sea.
+                                </p>
+                            </div><!-- .worker -->
+                        </div><!-- .col-sm-6 -->
+                	</div><!-- .row -->
+                </div><!-- .col-md-6 -->
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="worker">
+                            	<div class="worker-head">
+                                    <div class="worker-img">
+                                        <div class="worker-img-layer-1">
+                                            <div class="worker-img-layer-2">
+                                                <div class="worker-img-content">
+                                                    <img alt="worker" src="assets/images/workers/3.jpg">
+                                                    <div class="worker-socials">
+                                                    	<div class="worker-socials-content">
+                                                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                                                            <a href="#"><i class="fa fa-twitter"></i></a>
+                                                            <a href="#"><i class="fa fa-facebook"></i></a>
+                                                    	</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- .worker-img -->
+                                    <div class="worker-label">
+                                        <h4>John Doe</h4>
+                                        <em>Pasta chef</em>
+                                    </div>
+                            	</div><!-- .worker-head -->
+                                <p class="worker-note">
+                                    When gliding by the Bashee isles we emerged at last upon the great South Sea.
+                                </p>
+                            </div><!-- .worker -->
+                        </div><!-- .col-sm-6 -->
+                        <div class="col-sm-6">
+                            <div class="worker">
+                            	<div class="worker-head">
+                                    <div class="worker-img-alt">
+                                        <div class="worker-img-layer-1">
+                                            <div class="worker-img-layer-2">
+                                                <div class="worker-img-content">
+                                                    <img alt="worker" src="assets/images/workers/4.jpg">
+                                                    <div class="worker-socials">
+                                                    	<div class="worker-socials-content">
+                                                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                                                            <a href="#"><i class="fa fa-twitter"></i></a>
+                                                            <a href="#"><i class="fa fa-facebook"></i></a>
+                                                    	</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- .worker-img -->
+                                    <div class="worker-label">
+                                        <h4>Mark Smiley</h4>
+                                        <em>Assistant</em>
+                                    </div>
+                            	</div><!-- .worker-head -->
+                                <p class="worker-note">
+                                    When gliding by the Bashee isles we emerged at last upon the great South Sea.
+                                </p>
+                            </div><!-- .worker -->
+                        </div><!-- .col-sm-6 -->
+                	</div><!-- .row -->
+                </div><!-- .col-md-6 -->
+            </div><!-- .row -->
+        </div><!-- .container -->
+    </section>
+    
+    <section id="cart">
+        <div class="container">
+            <div class="cart-content">
+                <div class="cart-close cart-trigger"><i class="fa fa-close"></i></div>
+                <div class="border-lines-container">
+                    <h1 class="no-top-margin border-lines">Cart</h1>
+                </div>
+                <form>
+                    <div class="product-preview-small">
+                        <div class="product-img">
+                            <img alt="product photo" src="assets/images/products/1_small.png">
+                        </div>
+                        <div class="product-content">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h4 class="product-title">Vegetarian Pizza</h4>
+                                    Price $7.00/, order
+                                    <div class="product-pieces">
+                                        <input type="text" value="12">
+                                        <div class="product-pieces-up"></div>
+                                        <div class="product-pieces-down"></div>
+                                    </div>
+                                    pieces
+                                </div>
+                                <div class="col-md-4 product-price">
+                                    $75.0
+                                </div>
+                            </div>
+                        </div><!-- .product-content -->
+                    </div><!-- .product-preview-small -->
+                    <div class="product-preview-small">
+                        <div class="product-img">
+                            <img alt="product photo" src="assets/images/products/1_small.png">
+                        </div>
+                        <div class="product-content">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h4 class="product-title">Vegetarian Pizza</h4>
+                                    Price $4.50, order
+                                    <div class="product-pieces">
+                                        <input type="text" value="3">
+                                        <div class="product-pieces-up"></div>
+                                        <div class="product-pieces-down"></div>
+                                    </div>
+                                    pieces
+                                </div>
+                                <div class="col-md-4 product-price">
+                                    $18.0
+                                </div>
+                            </div>
+                        </div><!-- .product-content -->
+                    </div><!-- .product-preview-small -->
+                    <div class="product-preview-small">
+                        <div class="product-img">
+                            <img alt="product photo" src="assets/images/products/1_small.png">
+                        </div>
+                        <div class="product-content">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h4 class="product-title">Vegetarian Pizza</h4>
+                                    Price $9.00, order
+                                    <div class="product-pieces">
+                                        <input type="text" value="1">
+                                        <div class="product-pieces-up"></div>
+                                        <div class="product-pieces-down"></div>
+                                    </div>
+                                    pieces
+                                </div>
+                                <div class="col-md-4 product-price">
+                                    $31.0
+                                </div>
+                            </div>
+                        </div><!-- .product-content -->
+                    </div><!-- .product-preview-small -->
+                    <div class="product-preview-small">
+                        <div class="product-img">
+                            <i class="fa fa-truck"></i>
+                        </div>
+                        <div class="product-content">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h4 class="product-title">Delivery</h4>
+                                    Price $2.50, order
+                                    <div class="product-pieces product-pieces-readonly">
+                                        <input type="text" value="1" readonly>
+                                        <div class="product-pieces-up"></div>
+                                        <div class="product-pieces-down"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 product-price">
+                                    $2.5
+                                </div>
+                            </div>
+                        </div><!-- .product-content -->
+                    </div><!-- .product-preview-small -->
+                    <hr>
+                    <p class="text-right text-bigger">Total: $125.0</p>
+                    <div class="row text-xs-center">
+                        <div class="col-sm-6">
+                            <input class="button-yellow button-text-low button-long button-low" type="submit" value="Update cart">
+                        </div>
+                        <div class="col-sm-6 text-right text-xs-center">
+                            <div class="margin-15"></div>
+                            <a href="#section-delivery" class="button-yellow button-text-low button-long button-low scroll-to cart-trigger">Delivery</a>
+                        </div>
+                    </div>
+                </form>
+            </div><!-- .cart-content -->
+        </div><!-- .container -->
+    </section><!-- #cart -->
+    
+    <footer class="page-footer">
+    	<div class="container">
+        	<div class="row">
+            	<div class="col-md-4 responsive-column">
+                	<h2 class="footer-heading">Opening Hours</h2>
+                    <div class="opening-hours-wrapper">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <em>Monday - Friday</em>
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <em>09:00 - 23:00h</em>
+                            </div>
+                        </div>
+                        <div class="margin-5"></div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <em>Saturday</em>
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <em>09:00 - 16:00h</em>
+                            </div>
+                        </div>
+                        <div class="margin-5"></div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <em>Sunday</em>
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <em>12:00 - 18:00h</em>
+                            </div>
+                        </div>
+                    </div>
+                    <h2 class="footer-heading">Our Address</h2>
+                    <address>
+                    	Pizzeria Head Office<br>
+                        54866 2nd Road NY 48766<br>
+                        Ney York, U.S.A
+                        <div class="margin-20"></div>
+                        Make Reservations: 0 800 111 555 666<br>
+                        Email: info@yourdomain.com
+                    </address>
+                </div><!-- .col-md-4 -->
+            	<div class="col-md-4 text-center responsive-column">
+                	<div class="margin-40 visible-lg visible-md"></div>
+                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="141px" height="141px" viewBox="0 0 43.988 44.979" style="enable-background:new 0 0 43.988 44.979;" xml:space="preserve"> <path d="M37.383,16.22c3.517,7.474,0.886,16.918-5.946,21.733c-7.082,4.99-16.782,4.166-22.674-2.191 C2.7,29.22,1.912,20.428,7.131,12.854c4.695-6.813,14.018-8.953,20.577-5.988c-2.064,5.407-4.132,10.822-6.29,16.472 C26.876,20.904,32.102,18.574,37.383,16.22z M27.102,32.566c-0.002,1.413,1.051,2.507,2.422,2.515c1.354,0.008,2.424-1.1,2.426-2.51 c0.001-1.398-1.09-2.474-2.486-2.451C28.108,30.142,27.104,31.182,27.102,32.566z M13.273,14.833 c1.334,0.053,2.513-1.055,2.563-2.41c0.049-1.329-0.975-2.437-2.32-2.508c-1.404-0.074-2.527,0.919-2.622,2.318 C10.806,13.537,11.944,14.782,13.273,14.833z M23.347,32.031c1.395,0.009,2.481-1.067,2.467-2.445 c-0.013-1.351-1.053-2.4-2.39-2.414c-1.423-0.014-2.533,1.021-2.547,2.376C20.862,30.881,21.998,32.021,23.347,32.031z M30.313,21.663c-1.356-0.015-2.454,1.013-2.502,2.341c-0.049,1.342,1.101,2.552,2.429,2.556c1.368,0.004,2.497-1.121,2.496-2.489 C32.733,22.728,31.675,21.675,30.313,21.663z M9.766,33.943c0.002,1.377,1.02,2.435,2.363,2.459 c1.361,0.024,2.454-1.094,2.446-2.504c-0.007-1.361-1.066-2.449-2.384-2.447C10.758,31.453,9.763,32.476,9.766,33.943z M19.055,15.114c-1.412,0.003-2.447,1.067-2.431,2.496c0.016,1.351,1.068,2.375,2.445,2.379c1.387,0.003,2.446-1.089,2.429-2.508 C21.483,16.141,20.42,15.111,19.055,15.114z M8.195,24.771c1.288-0.005,2.425-1.131,2.445-2.422 c0.021-1.376-1.106-2.513-2.473-2.496c-1.368,0.02-2.482,1.168-2.449,2.528C5.75,23.689,6.878,24.777,8.195,24.771z M36.12,25.425 c0.969-0.006,1.674-0.747,1.662-1.75c-0.012-1.015-0.707-1.722-1.695-1.726c-0.987-0.003-1.801,0.831-1.768,1.811 C34.349,24.687,35.152,25.43,36.12,25.425z M27.534,36.958C27.505,36,26.739,35.29,25.76,35.312 c-1.018,0.023-1.698,0.724-1.678,1.728c0.02,0.961,0.814,1.732,1.752,1.698C26.778,38.705,27.563,37.882,27.534,36.958z M24.091,9.541c-0.013-0.973-0.744-1.688-1.723-1.684c-0.974,0.002-1.732,0.737-1.742,1.687c-0.01,0.948,0.866,1.827,1.795,1.803 C23.299,11.324,24.103,10.455,24.091,9.541z M15.21,23.873c-1.039-0.006-1.715,0.628-1.742,1.635 c-0.025,0.948,0.723,1.752,1.658,1.783c0.994,0.034,1.793-0.75,1.79-1.754C16.912,24.52,16.255,23.879,15.21,23.873z"/> <path d="M22.16,1.466c1.467,0.295,3.473,0.697,5.477,1.108c0.209,0.043,0.497,0.082,0.593,0.226 c0.267,0.406,0.452,0.866,0.669,1.304c-0.451,0.157-0.929,0.506-1.347,0.443c-1.881-0.286-3.741-0.972-5.615-0.996 C12.395,3.431,4.645,9.65,2.424,19.024c-2.571,10.852,4.697,21.734,15.863,23.752c9.054,1.636,18.534-4.085,21.474-12.866 c1.479-4.418,1.771-8.772-0.082-13.141c-0.246-0.579-0.361-1.177,0.35-1.49c0.806-0.356,1.169,0.167,1.46,0.84 c2.14,4.953,1.83,9.934-0.073,14.818c-3.299,8.468-9.694,13.109-18.49,13.957c-8.449,0.813-17.889-4.136-21.653-14.25 C-3.021,19.104,3.8,4.498,17.908,1.942C19.11,1.725,20.341,1.666,22.16,1.466z"/> <path d="M30.661,3.691c4.499,1.791,7.608,4.887,9.654,9.36c-5.255,2.337-10.445,4.645-15.953,7.094 C26.526,14.492,28.581,9.125,30.661,3.691z M35.381,8.472c-1.44,0-2.42,0.945-2.445,2.354c-0.026,1.438,1.008,2.531,2.404,2.542 c1.391,0.01,2.449-1.071,2.445-2.497C37.78,9.481,36.768,8.47,35.381,8.472z M27.57,14.899c0.003,0.958,0.754,1.729,1.691,1.733 c0.881,0.005,1.748-0.85,1.761-1.738c0.014-0.983-0.813-1.788-1.813-1.765C28.227,13.152,27.567,13.864,27.57,14.899z"/> <path d="M43.988,11.932c-0.199,0.224-0.42,0.69-0.679,0.712c-0.383,0.031-0.966-0.134-1.158-0.423 c-0.6-0.904-0.998-1.941-1.578-2.861c-2.061-3.264-4.907-5.607-8.402-7.16c-0.165-0.073-0.334-0.138-0.505-0.194 c-0.676-0.229-1.091-0.663-0.821-1.402c0.303-0.827,1.004-0.646,1.55-0.373c1.484,0.743,3.017,1.438,4.372,2.382 c3.066,2.137,5.333,5.001,6.895,8.425C43.767,11.267,43.836,11.511,43.988,11.932z"/> </svg>
+                	<p class="logo-footer-text">FOOD & PIZZERIA</p>
+                    <p class="logo-footer-detail">Ultimate Delivery HTML Template</p>
+                    <a  href="#section-menu" class="scroll-to button-yellow button-heavy">MAKE YOUR ORDER NOW!</a>
+                </div><!-- .col-md-4 -->
+            	<div class="col-md-4 responsive-column">
+                    <h2 class="footer-heading text-uppercase">Subscribe now</h2>
+                    <div class="margin-10"></div>
+                    <p>
+                    	<em>Subscribe now for our new updates<br>
+                        and get regular offers and stuff</em>
+                    </p>
+                    <form id="form-newsletter" class="form-subscribe" action="assets/php/save_rss.php" method="post" data-email-not-set-msg="Email must be set." data-success-msg="Email added.">
+                    	<input type="email" name="email" placeholder="Enter your Email">
+                        <div class="return-msg"></div>
+                        <div class="text-right">
+                        	<input class="button-yellow button-heavy" type="submit" value="Submit">
+                        </div>
+                    </form>
+                </div><!-- .col-md-4 -->
+            </div><!-- .row -->
+        </div><!-- .container -->
+        <div class="site-info">
+        	<div class="container">
+            	<div class="row">
+                	<div class="col-xs-8">
+                    	2015 All rights reserved. By IgnitionThemes Made with love.
+                    </div>
+                    <div class="col-xs-4 text-right footer-socials">
+                    	Spread the Word:
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-vimeo-square"></i></a>
+                        <a href="#"><i class="fa fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div><!-- .container -->
+        	<div id="scroll-top"><i class="fa fa-angle-double-up"></i></div>
+        </div><!-- .site-info -->
+    </footer>
+    
+    <script type="text/javascript" src="http://www.youtube.com/player_api"></script>
+	<script type="text/javascript" src="assets/js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/owl-carousel2/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="assets/retina/retina.min.js"></script>
+    <script type="text/javascript" src="assets/lightbox/js/lightbox.min.js"></script>
+    <script type="text/javascript" src="assets/flexslider/jquery.flexslider-min.js"></script>
+    <script type="text/javascript" src="assets/js/isotope.pkgd.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.scrollTo.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.nav.min.js"></script>
+	<script type="text/javascript" src="assets/js/custom.js"></script>
+</body>
+</html>

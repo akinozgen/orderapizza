@@ -1,0 +1,201 @@
+@charset "utf-8";
+body {
+  background: #FFF;
+  color: #404040;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #000;
+}
+hr {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+input[type=email],
+input[type=password],
+input[type=text],
+textarea {
+  border: 1px #ddd solid;
+}
+input[type=email]:focus,
+input[type=password]:focus,
+input[type=text]:focus,
+textarea:focus {
+  border-color: #f4cd03;
+}
+#main-navigation {
+  color: #343434;
+}
+#main-navigation > ul > li:after {
+  background-color: #343434;
+}
+#main-navigation > ul > li ul {
+  color: #FFF;
+}
+#main-navigation-button {
+  color: #000;
+}
+#main-navigation-container.fixed-pos #main-navigation,
+#main-navigation-container.fixed-pos #main-navigation-button {
+  color: #FFF;
+}
+#screen-cover {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+.banner {
+  border-color: #dddddd;
+}
+.bg-white {
+  background-color: #f7f7f7;
+}
+.bottom-line::after {
+  background-color: #dddddd;
+}
+.button-void {
+  color: #969696;
+  border-color: #969696;
+}
+.button-void-alt {
+  color: #696969;
+  border-color: #696969;
+}
+.cart-content {
+  background: #FFF;
+  border-color: #ddd;
+  color: #303030;
+}
+.cart-content .cart-close {
+  color: #000;
+}
+.flexslider a.flex-next,
+.flexslider a.flex-prev {
+  background-color: rgba(221, 221, 221, 0.85);
+}
+.heavy-borders {
+  border-color: #dddddd;
+}
+.icon-box .icon-box-icon:after {
+  border-color: #969696;
+}
+.icon-box .icon-box-icon svg {
+  fill: #969696;
+}
+.icon-rounded {
+  border-color: #696969;
+}
+.list-tabs {
+  color: #696969;
+}
+.list-tabs li a {
+  border-color: #696969;
+}
+.owl-carousel.owl-pagination-dash .owl-dots .owl-dot:after {
+  background-color: rgba(221, 221, 221, 0.85);
+}
+.owl-carousel.owl-navigation-box .owl-next,
+.owl-carousel.owl-navigation-box .owl-prev {
+  background-color: rgba(230, 230, 230, 0.8);
+  border: none;
+}
+.owl-carousel .owl-next,
+.owl-carousel .owl-prev {
+  background-color: #FFF;
+  color: #f5d21c;
+  border: 2px #f5d21c solid;
+}
+.owl-carousel .owl-next:hover,
+.owl-carousel .owl-prev:hover {
+  color: #fff;
+  background-color: #f5d21c;
+}
+.page-footer {
+  background-color: #f7f7f7;
+}
+.page-footer:after {
+  opacity: 0.07;
+}
+.page-header {
+  background-color: rgba(255, 255, 255, 0.95);
+}
+.page-top {
+  color: #b0b0b0;
+}
+.pagination li a {
+  border: 1px #696969 solid;
+  color: #343434;
+}
+.pagination li a:hover {
+  border-color: #f5d010;
+  background-color: #f5d010;
+}
+.post-preview {
+  color: #696969;
+}
+.post-preview:hover {
+  color: #343434;
+}
+.post-preview:hover .post-content {
+  color: #343434;
+  border-color: #696969;
+}
+.post-preview .post-content {
+  border-color: #dddddd;
+}
+.post-preview .post-content:after {
+  display: none;
+}
+.post-preview .post-meta {
+  color: #969696;
+  opacity: 1;
+}
+.post-tiny .post-title {
+  color: #343434;
+}
+.product-detail {
+  border-color: #969696;
+}
+.product-detail .product-size svg {
+  fill: #696969;
+}
+.product-detail-trigger:after {
+  border-top-color: #969696;
+  border-left-color: #969696;
+}
+.product-detail-trigger .product-preview-inner:after,
+.product-detail-trigger .product-preview-inner:before {
+  background-color: #969696;
+}
+.product-preview-big h1,
+.product-preview-big h2,
+.product-preview-big h3,
+.product-preview-big h4,
+.product-preview-big h5,
+.product-preview-big h6 {
+  color: #FFF;
+}
+.section-gray {
+  color: #696969;
+}
+.section-gray .button-clean {
+  color: #696969;
+}
+.sidebar-section {
+  border-color: rgba(0, 0, 0, 0.2);
+}
+.site-name {
+  color: #000;
+}
+.worker .worker-label {
+  border: 1px #f4cd03 solid;
+}
+@media (max-width: 1249px) {
+  #main-navigation {
+    color: #FFF;
+  }
+  #main-navigation > ul > li::after {
+    background-color: #FFF;
+  }
+}
