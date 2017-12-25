@@ -5,6 +5,14 @@ import Header from '../Components/Header';
 import Footer from '../Components/Footer';
 import HomePage from './home';
 import AboutPage from './about';
+import MenusPage from './menus';
+import SpecialsPage from './special';
+import TrackOrderPage from './trackorder';
+import SignInPage from './signin';
+import SignUpPage from './signup';
+import LogoutPage from './logout';
+
+import './index.css';
 
 const footerData = {
   addressInfo: {
@@ -63,6 +71,12 @@ export default () => (
         <Header navigationList={navigationList} />
         <Route exact path="/" component={HomePage} />
         <Route path="/about" component={AboutPage} />
+        <Route path="/menus" component={MenusPage} />
+        <Route path="/special" component={SpecialsPage} />
+        <Route path="/track-order" component={TrackOrderPage} />
+        <Route path="/signin" component={SignInPage} />
+        <Route path="/signup" component={SignUpPage} />
+        <Route path="/logout" component={LogoutPage} />
       </div>
     </Router>
 

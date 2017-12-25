@@ -1,6 +1,7 @@
 import React from 'react';
 
 import NavigationItem from './navigationitem';
+import LoginLinks from './loginlinks';
 
 export default (props) => {
   const { navigationList } = props;
@@ -15,16 +16,7 @@ export default (props) => {
                 Call now: 0 800 - <span className="text-uppercase">Pizza delivery</span>
               </em>
             </div>
-            <div className="col-xs-6 text-right">
-              Welcome Guest,{' '}
-              <a href="#" className="text-uppercase">
-                Sign in
-              </a>{' '}
-              |{' '}
-              <a href="#" className="text-uppercase">
-                Create new account
-              </a>
-            </div>
+            <LoginLinks />
           </div>
         </div>
       </div>
