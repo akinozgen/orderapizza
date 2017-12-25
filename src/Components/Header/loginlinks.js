@@ -8,7 +8,7 @@ export default () => {
   let link1;
 
   if (userdata) {
-    welcomeMessage = <span>Hoşgeldin, ${userdata.username}</span>;
+    welcomeMessage = <span>Hoşgeldin, {userdata.username}</span>;
     link1 = <Link to="/profile">Profil</Link>;
     link2 = <Link to="/logout">Çıkış</Link>;
   } else {

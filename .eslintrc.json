@@ -11,6 +11,7 @@
     "jsx-a11y/accessible-emoji": "off"
   },
   "env": {
-    "browser": true
+    "browser": true,
+    "es6": true
   }
 }

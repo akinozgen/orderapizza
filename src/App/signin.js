@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import SweetAlert from 'sweetalert';
+import { Redirect, Link } from 'react-router-dom';
 import GetToken from '../Api/get_token';
 
 export default class SignInPage extends Component {
@@ -8,6 +10,7 @@ export default class SignInPage extends Component {
     this.state = {
       email: '',
       password: '',
+      redirect: null,
     };
 
     this.onFormSubmit = this.onFormSubmit.bind(this);
@@ -16,7 +19,31 @@ export default class SignInPage extends Component {
   async onFormSubmit() {
     const { email, password } = this.state;
     const response = await GetToken(email, password);
-    alert(response);
+
+    if (!email || !password) {
+      SweetAlert({
+        title: 'Hata',
+        text: 'Eposta veya şifre boş olamaz.',
+        icon: 'error',
+        button: { text: 'Tamam' },
+      });
+      return;
+    }
+
+    if (response.getResult() === 'success') {
+      localStorage.setItem('userdata', JSON.stringify(response.getData().user));
+      localStorage.setItem('access_token', response.getData().pure_token);
+      this.setState({ redirect: <Redirect to="/" /> });
+    } else {
+      SweetAlert({
+        title: 'Hata',
+        text: 'Eposta veya şifre hatalı.',
+        icon: 'error',
+        button: { text: 'Tamam' },
+      });
+    }
+
+    this.setState({ email: null, password: null });
   }
 
   render() {
@@ -45,8 +72,12 @@ export default class SignInPage extends Component {
 
           <div className="col-md-8 col-sm-12">
             <h3 className="title">Kayıt Ol</h3>
+            <Link to="/signup" className="btn btn-primary">
+              Kayıt Ol Sayfasına Git
+            </Link>
           </div>
         </div>
+        {this.state.redirect}
       </div>
     );
   }
