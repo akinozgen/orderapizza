@@ -74,7 +74,10 @@ export default class SignInPage extends Component {
                 onChange={x => this.setState({ password: x.target.value })}
               />
               <button className="btn btn-warning" onClick={this.onFormSubmit}>
-                👍 Giriş Yap
+                <span role="img" aria-label="thums_up">
+                  👍
+                </span>{' '}
+                Giriş Yap
               </button>
             </div>
           </div>

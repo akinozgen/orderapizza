@@ -87,7 +87,11 @@ export default () => (
       <div className="container">
         <div className="row">
           <div className="col-sm-12 responsive-column">
-            <div className="row">{cardsData.map(cardData => <CardContent {...cardData} />)}</div>
+            <div className="row">
+              {cardsData.map((cardData, index) => (
+                <CardContent key={index.toString()} {...cardData} />
+              ))}
+            </div>
           </div>
         </div>
       </div>

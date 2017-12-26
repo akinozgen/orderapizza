@@ -8,8 +8,9 @@ export default (props) => {
 
   return (
     <div id="product-slider" className="owl-pagination-dash owl-navigation-box">
-      {data.map(sliderItem => (
+      {data.map((sliderItem, index) => (
         <SliderItem
+          key={index.toString()}
           image={sliderItem.image}
           price={sliderItem.price}
           content={sliderItem.content}

@@ -12,6 +12,8 @@ import SignInPage from './signin';
 import SignUpPage from './signup';
 import LogoutPage from './logout';
 
+import AuthMiddleware from '../Middleware/CheckAuth';
+
 import './index.css';
 
 const footerData = {
@@ -64,22 +66,61 @@ const navigationList = [
   },
 ];
 
-export default () => (
-  <div>
-    <Router>
-      <div>
-        <Header navigationList={navigationList} />
-        <Route exact path="/" component={HomePage} />
-        <Route path="/about" component={AboutPage} />
-        <Route path="/menus" component={MenusPage} />
-        <Route path="/special" component={SpecialsPage} />
-        <Route path="/track-order" component={TrackOrderPage} />
-        <Route path="/signin" component={SignInPage} />
-        <Route path="/signup" component={SignUpPage} />
-        <Route path="/logout" component={LogoutPage} />
-      </div>
-    </Router>
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
 
-    <Footer {...footerData} />
-  </div>
-);
+    this.state = {
+      authState: false,
+    };
+
+    this.changeAuthState = this.changeAuthState.bind(this);
+    this.authMiddleware = new AuthMiddleware();
+    this.checkAuth();
+  }
+
+  async checkAuth() {
+    const response = await this.authMiddleware.checkAuth();
+
+    if (response.getResult() === 'success') {
+      this.setState({ authState: true });
+    } else {
+      this.setState({ authState: false });
+    }
+  }
+
+  changeAuthState(value) {
+    this.setState({ authState: value });
+  }
+
+  render() {
+    return (
+      <div>
+        <Router>
+          <div>
+            <Header navigationList={navigationList} authState={this.state.authState} />
+            <Route exact path="/" component={HomePage} />
+            <Route path="/about" component={AboutPage} />
+            <Route path="/menus" component={MenusPage} />
+            <Route path="/special" component={SpecialsPage} />
+            <Route path="/track-order" component={TrackOrderPage} />
+            <Route
+              path="/signin"
+              component={() => <SignInPage changeAuthState={this.changeAuthState} />}
+            />
+            <Route
+              path="/signup"
+              component={() => <SignUpPage changeAuthState={this.changeAuthState} />}
+            />
+            <Route
+              path="/logout"
+              component={() => <LogoutPage changeAuthState={this.changeAuthState} />}
+            />
+          </div>
+        </Router>
+
+        <Footer {...footerData} />
+      </div>
+    );
+  }
+}

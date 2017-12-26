@@ -1,0 +1,39 @@
+.product-preview .product-photo .product-price {
+  font-size: 34px;
+}
+
+.product-preview .product-photo .product-price sup {
+  font-size: 18px;
+}
+
+.button-clean,
+.button-red,
+.button-void,
+.button-void-alt,
+.button-yellow {
+  color: #333;
+  background-color: #f4cd03;
+}
+
+.ReactModal__Overlay {
+  z-index: 1 !important;
+  background-color: rgba(0, 0, 0, 0.75) !important;
+}
+
+.unavailable {
+  opacity: 0.5;
+  filter: grayscale(1);
+  cursor: not-allowed;
+}
+
+#main-navigation-container {
+  z-index: 0;
+}
+
+.modal-header {
+  border: none;
+}
+
+.modal-header .close {
+  transform: scale(1.5);
+}

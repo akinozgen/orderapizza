@@ -42,7 +42,10 @@ export default class SignUpPage extends Component {
         closeOnClickOutside: false,
         closeOnEsc: false,
         timer: 1500,
-      }).then(() => this.setState({ redirect: <Redirect to="/" /> }));
+      }).then(() => {
+        this.props.changeAuthState(true);
+        this.setState({ redirect: <Redirect to="/" /> });
+      });
     } else {
       SweetAlert({
         title: 'Hata',
@@ -105,7 +108,10 @@ export default class SignUpPage extends Component {
                   })}
               />
               <button className="btn btn-primary" onClick={this.onFormSubmit}>
-                👍 Kayıt Ol
+                <span role="img" aria-label="thums_up">
+                  👍
+                </span>{' '}
+                Kayıt Ol
               </button>
             </div>
           </div>

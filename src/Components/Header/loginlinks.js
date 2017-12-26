@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default () => {
+export default (props) => {
+  const { authState } = props;
   const userdata = JSON.parse(localStorage.getItem('userdata'));
   let welcomeMessage;
   let link2;
   let link1;
 
-  if (userdata) {
+  if (authState && userdata) {
     welcomeMessage = <span>Hoşgeldin, {userdata.username}</span>;
     link1 = <Link to="/profile">Profil</Link>;
     link2 = <Link to="/logout">Çıkış</Link>;

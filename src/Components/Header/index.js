@@ -4,7 +4,7 @@ import NavigationItem from './navigationitem';
 import LoginLinks from './loginlinks';
 
 export default (props) => {
-  const { navigationList } = props;
+  const { navigationList, authState } = props;
 
   return (
     <header className="page-header page-header-normal">
@@ -16,7 +16,7 @@ export default (props) => {
                 Call now: 0 800 - <span className="text-uppercase">Pizza delivery</span>
               </em>
             </div>
-            <LoginLinks />
+            <LoginLinks authState={authState} />
           </div>
         </div>
       </div>

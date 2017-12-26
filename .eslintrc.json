@@ -7,11 +7,11 @@
     "react/prop-types": "off",
     "global-require": "off",
     "react/jsx-no-target-blank": "off",
-    "jsx-a11y/anchor-is-valid": "off",
-    "jsx-a11y/accessible-emoji": "off"
+    "jsx-a11y/anchor-is-valid": "off"
   },
   "env": {
     "browser": true,
-    "es6": true
+    "es6": true,
+    "node": true
   }
 }
