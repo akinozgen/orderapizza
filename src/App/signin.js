@@ -33,7 +33,16 @@ export default class SignInPage extends Component {
     if (response.getResult() === 'success') {
       localStorage.setItem('userdata', JSON.stringify(response.getData().user));
       localStorage.setItem('access_token', response.getData().pure_token);
-      this.setState({ redirect: <Redirect to="/" /> });
+
+      SweetAlert({
+        title: 'Yönlendiriliyorsunuz',
+        text: 'Giriş başarılı...',
+        icon: 'success',
+        buttons: false,
+        closeOnClickOutside: false,
+        closeOnEsc: false,
+        timer: 2000,
+      }).then(() => this.setState({ redirect: <Redirect to="/" /> }));
     } else {
       SweetAlert({
         title: 'Hata',

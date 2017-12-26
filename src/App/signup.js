@@ -17,7 +17,6 @@ export default class SignUpPage extends Component {
 
   async onFormSubmit() {
     const { email, password, username } = this.state.userdata;
-    const response = await Register(this.state.userdata);
 
     if (!email || !password || !username) {
       SweetAlert({
@@ -29,14 +28,28 @@ export default class SignUpPage extends Component {
       return;
     }
 
+    const response = await Register(this.state.userdata);
+
     if (response.getResult() === 'success') {
       localStorage.setItem('userdata', JSON.stringify(response.getData().user));
       localStorage.setItem('access_token', response.getData().pure_token);
-      this.setState({ redirect: <Redirect to="/" /> });
+
+      SweetAlert({
+        title: 'Yönlendiriliyorsunuz',
+        text: 'Kayıt Başarılı',
+        icon: 'success',
+        buttons: false,
+        closeOnClickOutside: false,
+        closeOnEsc: false,
+        timer: 1500,
+      }).then(() => this.setState({ redirect: <Redirect to="/" /> }));
     } else {
       SweetAlert({
         title: 'Hata',
-        text: 'Eposta veya şifre hatalı.',
+        text:
+          response.getData().message === 'existing_user'
+            ? 'Bu e-posta ile daha önce kayıt olunmuş.'
+            : 'İç sunucu hatası meydana geldi. Daha sonra tekrar deneyin',
         icon: 'error',
         button: { text: 'Tamam' },
       });
