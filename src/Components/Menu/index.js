@@ -1,5 +1,8 @@
 import React from 'react';
 import ReactModal from 'react-modal';
+import $ from 'jquery';
+import SweetAlert from 'sweetalert';
+import GetMenuOptions from '../../Api/get_menu_options';
 import './index.css';
 
 export default class MenuElement extends React.Component {
@@ -17,34 +20,118 @@ export default class MenuElement extends React.Component {
       image_path: props.image_path,
       available: props.available,
       modalState: false,
+      menu_options: [],
     };
 
     this.openModal = this.openModal.bind(this);
+    this.addToCart = this.addToCart.bind(this);
   }
 
-  async openModal(id) {
+  async openModal() {
     this.setState({ modalState: true });
+    const response = await GetMenuOptions(this.state.id);
+    const data = response.getData();
 
-    alert(id);
+    this.setState({ menu_options: data });
+  }
+
+  async addToCart() {
+    const form = $(this.form);
+    const formData = form.serializeArray();
+
+    const cartItem = {
+      id: this.state.id,
+      name: this.state.name,
+      price: parseFloat(this.state.price.join('.')),
+      description: this.state.description,
+      image_path: this.state.image_path,
+      count: formData.find(field => field.name === 'count').value,
+    };
+
+    cartItem.menu_options = formData
+      .filter(field => field.name === 'menu_options[]')
+      .map(field => this.state.menu_options.find(op => op.id === parseInt(field.value)));
+
+    const prevCart = JSON.parse(localStorage.getItem('cart'))
+      ? JSON.parse(localStorage.getItem('cart'))
+      : [];
+    prevCart.push(cartItem);
+    localStorage.setItem('cart', JSON.stringify(prevCart));
+    SweetAlert({
+      title: 'Ekleniyor',
+      text: 'Sepete Ekleniyor',
+      icon: 'info',
+      closeOnClickOutside: false,
+      closeOnEsc: false,
+      timer: 1750,
+      button: false,
+    }).then(() => this.setState({ modalState: false }));
+
+    form.trigger('reset');
   }
 
   _renderModal() {
     return (
       <ReactModal isOpen={this.state.modalState}>
-        <div className="modal-header">
-          <h5 className="modal-title">
-            Seçenekler{' '}
-            <button
-              type="button"
-              className="close"
-              data-dismiss="modal"
-              aria-label="Close"
-              onClick={() => this.setState({ modalState: false })}
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </h5>
-        </div>
+        <form
+          ref={(form) => {
+            this.form = form;
+          }}
+        >
+          <div className="modal-header">
+            <h5 className="modal-title">
+              Seçenekler{' '}
+              <button
+                type="button"
+                className="close"
+                data-dismiss="modal"
+                aria-label="Close"
+                onClick={() => this.setState({ modalState: false })}
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </h5>
+          </div>
+          <div className="modal-body">
+            {this.state.menu_options.map((menuOption, index) => (
+              <div className="form-check" key={index.toString()}>
+                <label className="form-check-label" htmlFor={index.toString()}>
+                  <input
+                    type="checkbox"
+                    className="form-check-input"
+                    id={index.toString()}
+                    value={menuOption.id}
+                    name="menu_options[]"
+                  />{' '}
+                  {menuOption.name}
+                  <i>{menuOption.description}</i>
+                  ({parseFloat(menuOption.price).toFixed(2)}₺)
+                </label>
+              </div>
+            ))}
+          </div>
+          <div className="modal-footer">
+            <div className="form-group">
+              <div className="input-group">
+                <span className="input-group-addon">Adet</span>
+                <input
+                  type="number"
+                  className="form-control"
+                  aria-label="Adet"
+                  defaultValue={1}
+                  name="count"
+                  min={1}
+                  max={20}
+                />
+                <span className="input-group-btn">
+                  <button className="btn btn-primary" type="button" onClick={this.addToCart}>
+                    Sepete Ekle
+                  </button>
+                </span>
+              </div>
+            </div>
+          </div>
+        </form>
       </ReactModal>
     );
   }

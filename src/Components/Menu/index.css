@@ -30,10 +30,55 @@
   z-index: 0;
 }
 
-.modal-header {
-  border: none;
-}
-
 .modal-header .close {
   transform: scale(1.5);
+}
+
+.ReactModal__Content {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header {
+  border: none;
+  flex-shrink: 1;
+}
+
+.ReactModal__Content form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-footer {
+  flex-shrink: 1;
+}
+
+.input-group {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.input-group-addon {
+  flex: 1;
+}
+
+.input-group input {
+  width: unset !important;
+  flex: 7;
+}
+
+.input-group-btn {
+  flex: 1;
+}
+
+.input-group-btn button {
+  width: 100%;
 }

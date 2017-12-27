@@ -19,6 +19,9 @@ export default class ApiResponse {
     return this.result;
   }
 
+  /**
+   * @returns {Array}
+   */
   getData() {
     return this.data;
   }

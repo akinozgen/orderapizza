@@ -21,6 +21,22 @@ export default class MenusPage extends Component {
     }
   }
 
+  componenDidUpdate() {
+    this.cart = JSON.parse(localStorage.getItem('cart'));
+    this.price = parseFloat('0');
+
+    this.cart.map((item) => {
+      this.price += item.price * item.count;
+      item.menu_options.map((menuOption) => {
+        this.price += menuOption.price;
+
+        return true;
+      });
+
+      return true;
+    });
+  }
+
   render() {
     this.getMenus();
     return (
@@ -28,7 +44,7 @@ export default class MenusPage extends Component {
         <div className="container">
           <div className="row">
             {this.state.menus.map((menu, index) => (
-              <MenuElement {...menu} key={index.toString()} />
+              <MenuElement addToCart={this.addToCart} {...menu} key={index.toString()} />
             ))}
           </div>
         </div>
