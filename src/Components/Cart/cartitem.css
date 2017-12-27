@@ -1,0 +1,86 @@
+.cart-item {
+  display: flex;
+  align-items: stretch;
+  flex-direction: row;
+  background-color: white;
+  border: 3px solid #eec510;
+}
+
+.cart-item .image-area {
+  width: 100px;
+  flex: 1;
+}
+
+.cart-item .image-area img {
+  width: 100px;
+  height: 100px;
+}
+
+.cart-item .content-area {
+  flex: 8;
+}
+
+.cart-item .content-area .item-name {
+  font-size: 18px;
+  display: block;
+}
+.cart-item .content-area .item-description {
+  font-size: 12px;
+  font-style: italic;
+}
+
+.cart-item .content-area ul {
+  display: block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  display: flex;
+}
+
+.cart-item .content-area ul li {
+  display: inline-block;
+  padding: 2px 8px;
+  background: #333;
+  color: white;
+  border-radius: 100px;
+  transform-origin: 0;
+  transform: scale(0.85);
+}
+
+.cart-item .content-area ul li button {
+  color: white;
+  opacity: 1;
+  margin-left: 5px;
+}
+
+.cart-item .actions-area {
+  flex: 2;
+  position: relative;
+}
+
+.cart-item .actions-area .form-group {
+  width: 100px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  overflow: hidden;
+}
+
+.cart-item .actions-area .form-group input {
+  border-radius: 0;
+  border: 0;
+  text-align: center;
+}
+
+.cart-item .actions-area .form-group button {
+  border-radius: 0;
+  border: 0;
+  width: 100%;
+}
+
+.cart-item .actions-area .close {
+  position: absolute;
+  right: 20px;
+  top: 40%;
+  transform: scale(2);
+}

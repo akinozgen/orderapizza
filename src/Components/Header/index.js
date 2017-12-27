@@ -2,9 +2,10 @@ import React from 'react';
 
 import NavigationItem from './navigationitem';
 import LoginLinks from './loginlinks';
+import CartButton from './cartbutton';
 
 export default (props) => {
-  const { navigationList, authState } = props;
+  const { navigationList, authState, toggleCartModal } = props;
 
   return (
     <header className="page-header page-header-normal">
@@ -39,7 +40,10 @@ export default (props) => {
                 </div>
               </div>
               <nav id="main-navigation">
-                <ul id="one-page-nav">{navigationList.map(nav => <NavigationItem {...nav} />)}</ul>
+                <ul id="one-page-nav">
+                  {navigationList.map(nav => <NavigationItem {...nav} />)}
+                  <CartButton onClick={toggleCartModal} />
+                </ul>
               </nav>
             </div>
           </div>

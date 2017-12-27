@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Cart from '../Components/Cart';
 
 import Header from '../Components/Header';
 import Footer from '../Components/Footer';
@@ -13,7 +14,6 @@ import SignUpPage from './signup';
 import LogoutPage from './logout';
 
 import AuthMiddleware from '../Middleware/CheckAuth';
-
 import './index.css';
 
 const footerData = {
@@ -72,9 +72,11 @@ export default class App extends React.Component {
 
     this.state = {
       authState: false,
+      modalState: false,
     };
 
     this.changeAuthState = this.changeAuthState.bind(this);
+    this.toggleCartModal = this.toggleCartModal.bind(this);
     this.authMiddleware = new AuthMiddleware();
     this.checkAuth();
   }
@@ -89,6 +91,10 @@ export default class App extends React.Component {
     }
   }
 
+  toggleCartModal() {
+    this.setState({ modalState: !this.state.modalState });
+  }
+
   changeAuthState(value) {
     this.setState({ authState: value });
   }
@@ -98,7 +104,11 @@ export default class App extends React.Component {
       <div>
         <Router>
           <div>
-            <Header navigationList={navigationList} authState={this.state.authState} />
+            <Header
+              navigationList={navigationList}
+              authState={this.state.authState}
+              toggleCartModal={this.toggleCartModal}
+            />
             <Route exact path="/" component={HomePage} />
             <Route path="/about" component={AboutPage} />
             <Route path="/menus" component={MenusPage} />
@@ -119,6 +129,7 @@ export default class App extends React.Component {
           </div>
         </Router>
 
+        <Cart modalState={this.state.modalState} toggleCartModal={this.toggleCartModal} />
         <Footer {...footerData} />
       </div>
     );
