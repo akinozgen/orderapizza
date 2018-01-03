@@ -74,6 +74,7 @@ export default class App extends React.Component {
       authState: false,
       modalState: false,
       cart: [],
+      mounted: false
     };
 
     this.changeAuthState = this.changeAuthState.bind(this);
@@ -82,6 +83,10 @@ export default class App extends React.Component {
     this.authMiddleware = new AuthMiddleware();
     this.checkAuth();
     this.updateCart();
+  }
+
+  componentDidMount() {
+    this.setState({ mounted: true });
   }
 
   updateCart() {
@@ -108,6 +113,10 @@ export default class App extends React.Component {
   }
 
   render() {
+    if (this.state.mounted) {
+      this.cart.state.totalPrice = this.cart.__proto__.calculateTotalPrice(this.state.cart);
+    }
+
     return (
       <div>
         <Router>
@@ -138,6 +147,7 @@ export default class App extends React.Component {
         </Router>
 
         <Cart
+          ref={(cart) => { this.cart = cart; }}
           modalState={this.state.modalState}
           toggleCartModal={this.toggleCartModal}
           cart={this.state.cart}

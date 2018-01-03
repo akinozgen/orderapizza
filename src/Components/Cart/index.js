@@ -9,6 +9,12 @@ export default class Cart extends Component {
   constructor(props) {
     super(props);
 
+    const cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
+
+    this.state = {
+      totalPrice: this.calculateTotalPrice(cart),
+    };
+
     this.removeItem = this.removeItem.bind(this);
     this.updateItem = this.updateItem.bind(this);
   }
@@ -28,6 +34,8 @@ export default class Cart extends Component {
 
     localStorage.setItem('cart', JSON.stringify(cart));
     this.props.updateCart();
+
+    this.setState({ totalPrice: this.calculateTotalPrice(cart) });
   }
 
   /**
@@ -46,6 +54,27 @@ export default class Cart extends Component {
 
     localStorage.setItem('cart', JSON.stringify(cart));
     this.props.updateCart();
+
+    this.setState({ totalPrice: this.calculateTotalPrice(cart) });
+  }
+
+  calculateTotalPrice(cart) {
+    let totalPrice = 0.00;
+
+    cart.map((cartItem) => {
+      let itemTotal = cartItem.price;
+
+      cartItem.menu_options.map((menuOption) => {
+        itemTotal += menuOption.price;
+        return true;
+      });
+
+      totalPrice += itemTotal * cartItem.count;
+
+      return true;
+    });
+
+    return totalPrice;
   }
 
   render() {
@@ -83,9 +112,17 @@ export default class Cart extends Component {
             />))}
           </div>
           <div className="modal-footer">
-            <button className="btn btn-warning" type="button">
-              Ödemeye Git
-            </button>
+            <div className="input-group pull-right">
+              <span className="input-group-btn">
+                <button className="btn btn-primary" type="button" disabled>Toplam Fiyat</button>
+              </span>
+              <input className="form-control" value={`${parseFloat(this.state.totalPrice).toFixed(2)} ₺`} readOnly />
+              <span className="input-group-btn">
+                <button className="btn btn-primary" type="button">
+                  Ödemeye Git
+                </button>
+              </span>
+            </div>
           </div>
         </form>
       </ReactModal>

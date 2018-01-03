@@ -15,7 +15,9 @@
     "jsx-a11y/anchor-is-valid": "off",
     "no-underscore-dangle": "off",
     "radix": "off",
-    "camelcase": "off"
+    "camelcase": "off",
+    "class-methods-use-this": "off",
+    "no-proto": "off"
   },
   "env": {
     "browser": true,

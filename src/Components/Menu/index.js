@@ -27,21 +27,30 @@ export default class MenuElement extends React.Component {
 
     this.openModal = this.openModal.bind(this);
     this.addToCart = this.addToCart.bind(this);
+    this.getMenuOptions = this.getMenuOptions.bind(this);
+
+    this.getMenuOptions();
   }
 
-  async openModal() {
-    this.setState({ modalState: true });
+  async getMenuOptions() {
     const response = await GetMenuOptions(this.state.id);
-    const data = response.getData();
+    const menu_options = response.getData();
 
-    this.setState({ menu_options: data });
+    this.setState({ menu_options });
   }
 
-  async addToCart() {
-    const form = $(this.form);
-    const formData = form.serializeArray();
-    const count = formData.find(field => field.name === 'count').value;
+  openModal() {
+    this.setState({ modalState: true });
+  }
 
+  addToCart() {
+    // Get form with Jquery
+    const form = $(this.form);
+    // Get form data with Jquery
+    const formData = form.serializeArray();
+    // Get count of menu
+    const count = formData.find(field => field.name === 'count').value;
+    // Create a new cartItem object
     const cartItem = {
       id: this.state.id,
       name: this.state.name,
@@ -50,16 +59,22 @@ export default class MenuElement extends React.Component {
       image_path: this.state.image_path,
       count: parseInt(count),
     };
-
+    // Filter form data fields by named 'menu_options[]'
+    // and iterate this fields with map. In this iteration
+    // return a menu_options value which "menu_options.id" equals "menu_options fields value"
     cartItem.menu_options = formData
       .filter(field => field.name === 'menu_options[]')
       .map(field => this.state.menu_options.find(op => op.id === parseInt(field.value)));
-
+    // Get previous cart data. If not exists, return an empty array.
     const prevCart = JSON.parse(localStorage.getItem('cart'))
       ? JSON.parse(localStorage.getItem('cart'))
       : [];
+    // Push new cartItem to old cart data
     prevCart.push(cartItem);
+    // Set modified cart data to localStorage
     localStorage.setItem('cart', JSON.stringify(prevCart));
+    // Show alert for user to understand wtfigo!
+    // then close modal
     SweetAlert({
       title: 'Ekleniyor',
       text: 'Sepete Ekleniyor',
@@ -69,7 +84,7 @@ export default class MenuElement extends React.Component {
       timer: 1750,
       button: false,
     }).then(() => this.setState({ modalState: false }));
-
+    // Clear product form
     form.trigger('reset');
   }
 
