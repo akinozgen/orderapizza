@@ -90,7 +90,8 @@ export default class App extends React.Component {
   }
 
   updateCart() {
-    if (localStorage.getItem('cart')) this.setState({ cart: JSON.parse(localStorage.getItem('cart')) });
+    if (localStorage.getItem('cart'))
+      this.setState({ cart: JSON.parse(localStorage.getItem('cart')) });
   }
 
   async checkAuth() {
