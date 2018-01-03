@@ -1,6 +1,11 @@
 {
   "extends": "airbnb",
-  "plugins": ["react", "jsx-a11y", "import", "require"],
+  "plugins": [
+    "react",
+    "jsx-a11y",
+    "import",
+    "require"
+  ],
   "rules": {
     "react/jsx-filename-extension": "off",
     "linebreak-style": "off",
@@ -15,6 +20,10 @@
   "env": {
     "browser": true,
     "es6": true,
-    "node": true
+    "node": true,
+    "commonjs": true
+  },
+  "settings": {
+    "arrow-parens": "always"
   }
 }

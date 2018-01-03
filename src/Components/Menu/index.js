@@ -2,7 +2,9 @@ import React from 'react';
 import ReactModal from 'react-modal';
 import $ from 'jquery';
 import SweetAlert from 'sweetalert';
+
 import GetMenuOptions from '../../Api/get_menu_options';
+import MenuOption from './menuoption';
 import './index.css';
 
 export default class MenuElement extends React.Component {
@@ -38,6 +40,7 @@ export default class MenuElement extends React.Component {
   async addToCart() {
     const form = $(this.form);
     const formData = form.serializeArray();
+    const count = formData.find(field => field.name === 'count').value;
 
     const cartItem = {
       id: this.state.id,
@@ -45,7 +48,7 @@ export default class MenuElement extends React.Component {
       price: parseFloat(this.state.price.join('.')),
       description: this.state.description,
       image_path: this.state.image_path,
-      count: formData.find(field => field.name === 'count').value,
+      count: parseInt(count),
     };
 
     cartItem.menu_options = formData
@@ -93,22 +96,8 @@ export default class MenuElement extends React.Component {
             </h5>
           </div>
           <div className="modal-body">
-            {this.state.menu_options.map((menuOption, index) => (
-              <div className="form-check" key={index.toString()}>
-                <label className="form-check-label" htmlFor={index.toString()}>
-                  <input
-                    type="checkbox"
-                    className="form-check-input"
-                    id={index.toString()}
-                    value={menuOption.id}
-                    name="menu_options[]"
-                  />{' '}
-                  {menuOption.name}
-                  <i>{menuOption.description}</i>
-                  ({parseFloat(menuOption.price).toFixed(2)}₺)
-                </label>
-              </div>
-            ))}
+            {this.state.menu_options.map((menuOption, index) =>
+              <MenuOption {...menuOption} index={index} />)}
           </div>
           <div className="modal-footer">
             <div className="form-group">

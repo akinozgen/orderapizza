@@ -73,12 +73,19 @@ export default class App extends React.Component {
     this.state = {
       authState: false,
       modalState: false,
+      cart: [],
     };
 
     this.changeAuthState = this.changeAuthState.bind(this);
     this.toggleCartModal = this.toggleCartModal.bind(this);
+    this.updateCart = this.updateCart.bind(this);
     this.authMiddleware = new AuthMiddleware();
     this.checkAuth();
+    this.updateCart();
+  }
+
+  updateCart() {
+    if (localStorage.getItem('cart')) this.setState({ cart: JSON.parse(localStorage.getItem('cart')) });
   }
 
   async checkAuth() {
@@ -92,6 +99,7 @@ export default class App extends React.Component {
   }
 
   toggleCartModal() {
+    this.updateCart();
     this.setState({ modalState: !this.state.modalState });
   }
 
@@ -129,7 +137,12 @@ export default class App extends React.Component {
           </div>
         </Router>
 
-        <Cart modalState={this.state.modalState} toggleCartModal={this.toggleCartModal} />
+        <Cart
+          modalState={this.state.modalState}
+          toggleCartModal={this.toggleCartModal}
+          cart={this.state.cart}
+          updateCart={this.updateCart}
+        />
         <Footer {...footerData} />
       </div>
     );

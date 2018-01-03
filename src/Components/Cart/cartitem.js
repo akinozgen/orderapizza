@@ -3,8 +3,9 @@ import './cartitem.css';
 
 export default (props) => {
   const {
-    image_path, name, description, price, menu_options, count,
+    image_path, name, description, price, menu_options, removeItem, updateItem, index, id,
   } = props;
+  let { count } = props;
 
   return (
     <article className="cart-item well well-sm">
@@ -33,12 +34,33 @@ export default (props) => {
 
       <section className="actions-area">
         <div className="form-group">
-          <input type="number" defaultValue={count} className="form-control" max={20} min={1} />
-          <button className="btn btn-success" type="button">
+          <input
+            type="number"
+            defaultValue={count}
+            onChange={(x) => { count = parseInt(x.target.value); }}
+            className="form-control"
+            max={20}
+            min={1}
+          />
+          <button
+            className="btn btn-success"
+            type="button"
+            onClick={() => {
+              updateItem(index, {
+                id,
+                name,
+                price,
+                description,
+                image_path,
+                count,
+                menu_options,
+              });
+            }}
+          >
             Güncelle
           </button>
         </div>
-        <button className="close" type="button">
+        <button className="close" type="button" onClick={() => removeItem(index)}>
           &times;
         </button>
       </section>

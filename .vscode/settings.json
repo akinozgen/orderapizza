@@ -9,7 +9,6 @@
         "**/*lock*": true,
         "**/.*": true
     },
-    "prettier.useTabs": false,
-    "prettier.eslintIntegration": true,
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "eslint.autoFixOnSave": true
 }
