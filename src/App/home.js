@@ -5,26 +5,7 @@ import SpecialBanner from '../Components/Banner';
 import Divider from '../Components/Divider';
 import CardContent from '../Components/CardContent';
 
-const sliderData = [
-  {
-    image: 'assets/images/slider/2.jpg',
-    price: { major: 7, minor: 99 },
-    content: { title: 'Napoli', ingredients: 'mantar fln.' },
-    button: { title: 'Sipariş Ver', href: '#' },
-  },
-  {
-    image: 'assets/images/slider/2.jpg',
-    price: { major: 7, minor: 99 },
-    content: { title: 'Napoli', ingredients: 'mantar fln.' },
-    button: { title: 'Sipariş Ver', href: '#' },
-  },
-  {
-    image: 'assets/images/slider/2.jpg',
-    price: { major: 7, minor: 99 },
-    content: { title: 'Napoli', ingredients: 'mantar fln.' },
-    button: { title: 'Sipariş Ver', href: '#' },
-  },
-];
+import GetMenus from '../Api/get_menus';
 
 const cardsData = [
   {
@@ -57,44 +38,92 @@ const cardsData = [
   },
 ];
 
-export default () => (
-  <div>
-    <section>
-      <div className="container">
-        <Slider data={sliderData} />
-      </div>
-      <div className="container">
-        <div className="row">
-          <SpecialBanner
-            image="assets/images/banners/1.jpg"
-            title="Deneme"
-            content="lorem lorem lorem"
-            url="#"
-          />
-          <SpecialBanner
-            image="assets/images/banners/1.jpg"
-            title="Deneme"
-            content="lorem lorem lorem"
-            url="#"
-          />
-        </div>
-      </div>
-    </section>
+export default class Home extends React.Component {
+  constructor(props) {
+    super(props);
 
-    <Divider />
+    this.state = {
+      sliderData: [
+        {
+          image: 'slider/1.jpg',
+          price: '5.00',
+          title: 'Parmak Patates',
+          ingredients: '',
+          button_href: '',
+          button_title: '',
+        },
+        {
+          image: 'slider/2.jpg',
+          price: '',
+          title: '',
+          ingredients: '',
+          button_href: '',
+          button_title: '',
+        },
+        {
+          image: 'slider/3.jpg',
+          price: '',
+          title: '',
+          ingredients: '',
+          button_href: '',
+          button_title: '',
+        },
+      ],
+      specialBanners: [{}, {}],
+    };
 
-    <section>
-      <div className="container">
-        <div className="row">
-          <div className="col-sm-12 responsive-column">
+    this.getMenus = this.getMenus.bind(this);
+
+    this.getMenus();
+  }
+
+  async getMenus() {
+    const response = await GetMenus();
+
+    if (response.getResult() === 'success') { this.setState({ specialBanners: response.getData() }); }
+  }
+
+  render() {
+    return (
+      <div>
+        <section>
+          <div className="container">
+            <Slider data={this.state.sliderData} />
+          </div>
+          <div className="container">
             <div className="row">
-              {cardsData.map((cardData, index) => (
-                <CardContent key={index.toString()} {...cardData} />
-              ))}
+              <SpecialBanner
+                image={this.state.specialBanners[0].image_path}
+                title={this.state.specialBanners[0].name}
+                content={this.state.specialBanners[0].description}
+                url="#!"
+              />
+              <SpecialBanner
+                image={this.state.specialBanners[1].image_path}
+                title={this.state.specialBanners[1].name}
+                content={this.state.specialBanners[1].description}
+                url="#!"
+              />
             </div>
           </div>
-        </div>
+        </section>
+
+        <Divider />
+
+        <section>
+          <div className="container">
+            <div className="row">
+              <div className="col-sm-12 responsive-column">
+                <div className="row">
+                  {cardsData.map((cardData, index) => (
+                    <CardContent key={index.toString()} {...cardData} />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
-    </section>
-  </div>
-);
+    );
+  }
+}

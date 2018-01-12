@@ -1,0 +1,11 @@
+.banner {
+    max-height: 200px;
+}
+
+.banner-1-detail {
+    font-size: 22px;
+    background-color: rgba(0, 0, 0, .6);
+    float: right;
+    padding-left: unset;
+    padding: 10px 25px;
+}

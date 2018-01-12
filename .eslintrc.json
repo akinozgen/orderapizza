@@ -17,7 +17,8 @@
     "radix": "off",
     "camelcase": "off",
     "class-methods-use-this": "off",
-    "no-proto": "off"
+    "no-proto": "off",
+    "react/no-did-mount-set-state": "off"
   },
   "env": {
     "browser": true,

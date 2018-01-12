@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactModal from 'react-modal';
+import { Redirect } from 'react-router-dom';
 import CartItem from './cartitem';
 
 export default class Cart extends Component {
@@ -13,10 +14,12 @@ export default class Cart extends Component {
 
     this.state = {
       totalPrice: this.calculateTotalPrice(cart),
+      redirect: null,
     };
 
     this.removeItem = this.removeItem.bind(this);
     this.updateItem = this.updateItem.bind(this);
+    this.goToCheckout = this.goToCheckout.bind(this);
   }
 
   /**
@@ -58,6 +61,10 @@ export default class Cart extends Component {
     this.setState({ totalPrice: this.calculateTotalPrice(cart) });
   }
 
+  /**
+   * @param {Array|Object} cart
+   * @returns {number}
+   */
   calculateTotalPrice(cart) {
     let totalPrice = 0.00;
 
@@ -75,6 +82,11 @@ export default class Cart extends Component {
     });
 
     return totalPrice;
+  }
+
+  goToCheckout() {
+    this.setState({ redirect: <Redirect to="/checkout" /> });
+    this.props.toggleCartModal();
   }
 
   render() {
@@ -118,13 +130,19 @@ export default class Cart extends Component {
               </span>
               <input className="form-control" value={`${parseFloat(this.state.totalPrice).toFixed(2)} ₺`} readOnly />
               <span className="input-group-btn">
-                <button className="btn btn-primary" type="button">
+                <button
+                  className="btn btn-primary"
+                  type="button"
+                  disabled={this.state.totalPrice === 0}
+                  onClick={this.state.totalPrice !== 0 ? this.goToCheckout : null}
+                >
                   Ödemeye Git
                 </button>
               </span>
             </div>
           </div>
         </form>
+        {this.state.redirect}
       </ReactModal>
     );
   }

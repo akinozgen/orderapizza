@@ -31,11 +31,7 @@ export default (props) => {
               <div className="pull-left">
                 <div className="centered-columns">
                   <div className="centered-column">
-                    <img className="page-logo" alt="logo" src="assets/images/logo.png" />
-                  </div>
-                  <div className="centered-column hidden-xs">
-                    <h1 className="site-name">FOOD & PIZZERIA</h1>
-                    <h4 className="site-name-info">Ultimate Delivery HTML Template</h4>
+                    <img className="page-logo" alt="logo" src="assets/napolipizzalogo.png" />
                   </div>
                 </div>
               </div>

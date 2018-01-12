@@ -16,12 +16,14 @@ export default class SignUpPage extends Component {
   }
 
   async onFormSubmit() {
-    const { email, password, username } = this.state.userdata;
+    const {
+      email, password, username, phone,
+    } = this.state.userdata;
 
-    if (!email || !password || !username) {
+    if (!email || !password || !username || !phone) {
       SweetAlert({
         title: 'Hata',
-        text: 'Ad soyad, eposta veya şifre boş olamaz.',
+        text: 'Ad soyad, eposta, telefon veya şifre boş olamaz.',
         icon: 'error',
         button: { text: 'Tamam' },
       });
@@ -77,6 +79,7 @@ export default class SignUpPage extends Component {
                     userdata: {
                       username: x.target.value,
                       email: this.state.userdata.email,
+                      phone: this.state.userdata.phone,
                       password: this.state.userdata.password,
                     },
                   })}
@@ -90,6 +93,21 @@ export default class SignUpPage extends Component {
                     userdata: {
                       username: this.state.userdata.username,
                       email: x.target.value,
+                      phone: this.state.userdata.phone,
+                      password: this.state.userdata.password,
+                    },
+                  })}
+              />
+              <input
+                placeholder="Telefon"
+                required
+                type="text"
+                onChange={x =>
+                  this.setState({
+                    userdata: {
+                      username: this.state.userdata.username,
+                      email: this.state.userdata.email,
+                      phone: x.target.value,
                       password: this.state.userdata.password,
                     },
                   })}
@@ -104,6 +122,7 @@ export default class SignUpPage extends Component {
                       username: this.state.userdata.username,
                       email: this.state.userdata.email,
                       password: x.target.value,
+                      phone: this.state.userdata.phone,
                     },
                   })}
               />

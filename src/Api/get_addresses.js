@@ -1,25 +1,15 @@
 import $ from 'jquery';
 import ApiResponse from './apiresponse';
 
-export default async function (userdata) {
-  const {
- username, email, password, phone 
-} = userdata;
+export default async function (userid) {
   const url = localStorage.getItem('remote_url');
   const key = localStorage.getItem('api_key');
 
   return new Promise((resolve, reject) => {
     $.ajax({
-      url: `${url}/api/v1/users/insert?apikey=${key}`,
+      url: `${url}/api/v1/addresses/get_user_addresses/${userid}?apikey=${key}`,
+      type: 'GET',
       dataType: 'JSON',
-      data: {
-        username,
-        email,
-        phone,
-        password,
-        role: 'user',
-      },
-      type: 'POST',
       success: response => resolve(new ApiResponse(response)),
     }).fail(reject);
   });

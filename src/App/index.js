@@ -7,11 +7,12 @@ import Footer from '../Components/Footer';
 import HomePage from './home';
 import AboutPage from './about';
 import MenusPage from './menus';
-import SpecialsPage from './special';
+import ProfilePage from './profile';
 import TrackOrderPage from './trackorder';
 import SignInPage from './signin';
 import SignUpPage from './signup';
 import LogoutPage from './logout';
+import CheckoutPage from './checkout';
 
 import AuthMiddleware from '../Middleware/CheckAuth';
 import './index.css';
@@ -57,12 +58,8 @@ const navigationList = [
     title: 'Menüler',
   },
   {
-    href: '/special',
-    title: 'Spesiyaller',
-  },
-  {
-    href: '/track-order',
-    title: 'Sipariş Takibi',
+    href: '/checkout',
+    title: 'Ödeme',
   },
 ];
 
@@ -74,7 +71,7 @@ export default class App extends React.Component {
       authState: false,
       modalState: false,
       cart: [],
-      mounted: false
+      mounted: false,
     };
 
     this.changeAuthState = this.changeAuthState.bind(this);
@@ -86,12 +83,14 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
+    // eslint-disable-next-line
     this.setState({ mounted: true });
   }
 
   updateCart() {
-    if (localStorage.getItem('cart'))
+    if (localStorage.getItem('cart')) {
       this.setState({ cart: JSON.parse(localStorage.getItem('cart')) });
+    }
   }
 
   async checkAuth() {
@@ -130,7 +129,7 @@ export default class App extends React.Component {
             <Route exact path="/" component={HomePage} />
             <Route path="/about" component={AboutPage} />
             <Route path="/menus" component={MenusPage} />
-            <Route path="/special" component={SpecialsPage} />
+            <Route path="/profile" component={ProfilePage} />
             <Route path="/track-order" component={TrackOrderPage} />
             <Route
               path="/signin"
@@ -144,16 +143,20 @@ export default class App extends React.Component {
               path="/logout"
               component={() => <LogoutPage changeAuthState={this.changeAuthState} />}
             />
+            <Route
+              path="/checkout"
+              component={() => <CheckoutPage toggleCartModal={this.toggleCartModal} />}
+            />
+            <Cart
+              ref={(cart) => { this.cart = cart; }}
+              modalState={this.state.modalState}
+              toggleCartModal={this.toggleCartModal}
+              cart={this.state.cart}
+              updateCart={this.updateCart}
+            />
           </div>
         </Router>
 
-        <Cart
-          ref={(cart) => { this.cart = cart; }}
-          modalState={this.state.modalState}
-          toggleCartModal={this.toggleCartModal}
-          cart={this.state.cart}
-          updateCart={this.updateCart}
-        />
         <Footer {...footerData} />
       </div>
     );

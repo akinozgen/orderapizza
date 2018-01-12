@@ -1,0 +1,15 @@
+.panel-title {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.panel-primary > .panel-heading {
+  background-image: linear-gradient(45deg, rgba(73,155,234,1) 0%, rgba(32,124,229,1) 100%);
+}
+
+.panel-warning > .panel-heading {
+  background-image: linear-gradient(45deg, rgba(255,175,75,1) 0%, rgba(255,146,10,1) 100%);
+}
+
+.panel-warning > .panel-heading > .panel-title {
+  color: white;
+}

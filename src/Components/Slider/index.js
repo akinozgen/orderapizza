@@ -1,6 +1,7 @@
 import React from 'react';
 
 import SliderItem from './item';
+import './index.css';
 
 export default (props) => {
   // eslint-disable-next-line
@@ -13,8 +14,10 @@ export default (props) => {
           key={index.toString()}
           image={sliderItem.image}
           price={sliderItem.price}
-          content={sliderItem.content}
-          button={sliderItem.button}
+          title={sliderItem.title}
+          ingredients={sliderItem.ingredients}
+          button_href={sliderItem.button_href}
+          button_title={sliderItem.button_title}
         />
       ))}
     </div>
