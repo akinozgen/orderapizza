@@ -42,19 +42,9 @@ export default class MenusPage extends Component {
     return (
       <div className="menu-elements">
         <div className="container">
-          {this.state.menus.map((menu, index) => {
-            if ((index + 1) % 3 === 0) {
-              return (
-                <div className="row">
-                  {this.state.menus.map((menuItem, indexItem) => {
-                    if (index >= indexItem && index <= indexItem + 3) {
-                      return <MenuElement addToCart={this.addToCart} {...menuItem} key={indexItem.toString()} />;
-                    }
-                  })}
-                </div>
-              );
-            }
-          })}
+          {this.state.menus.map((menu, index) => (
+            <MenuElement addToCart={this.addToCart} {...menu} key={index.toString()} />
+          ))}
         </div>
       </div>
     );

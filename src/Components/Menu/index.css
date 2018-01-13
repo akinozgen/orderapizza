@@ -82,3 +82,7 @@
 .input-group-btn button {
   width: 100%;
 }
+
+.product-preview {
+  height: 550px;  
+}

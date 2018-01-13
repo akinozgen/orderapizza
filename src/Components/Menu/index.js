@@ -143,7 +143,7 @@ export default class MenuElement extends React.Component {
   render() {
     return (
       <div
-        className={`col-md-4 ${this.state.available === 1 ? '' : 'unavailable'}`}
+        className={`col-md-4 ${String(this.state.available) === '1' ? '' : 'unavailable'}`}
         key={this.state.id.toString()}
       >
         <div className="product-preview">
@@ -158,8 +158,10 @@ export default class MenuElement extends React.Component {
           <p className="product-info">{this.state.description}</p>
           <button
             className="cart-trigger button-clean button-text-small"
-            disabled={!this.state.available}
-            onClick={this.openModal}
+            onClick={String(this.state.available) === '1' ? this.openModal : () => SweetAlert({
+              text: 'Bu menü mevcut değil',
+              button: 'Tamam',
+            })}
           >
             Sepete Ekle
           </button>

@@ -119,7 +119,7 @@ export default class App extends React.Component {
 
     return (
       <div>
-        <Router>
+        <Router basename="/orderapizza/">
           <div>
             <Header
               navigationList={navigationList}
