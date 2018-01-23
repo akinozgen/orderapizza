@@ -31,7 +31,12 @@ export default class ProfilePage extends Component {
     const response = await GetUserOrders(this.state.userdata.id);
 
     if (response.getResult() === 'success') {
-      this.setState({ orders: response.getData() });
+      const data = response.getData();
+
+      const keys = Object.keys(data);
+      const values = keys.map(key => data[key]);
+
+      this.setState({ orders: values.reverse() });
     }
   }
 
@@ -64,8 +69,9 @@ export default class ProfilePage extends Component {
     const data = {};
 
     formData.map((d) => {
-      if (d.name === 'password' && d.value === '') return;
-      return data[d.name] = d.value;
+      if (d.name === 'password' && d.value === '') {
+        console.log(data);
+      } else data[d.name] = d.value;
     });
 
     const response = await UpdateProfile(this.state.userdata.id, data);
@@ -95,7 +101,11 @@ export default class ProfilePage extends Component {
                     <label>
                       Ad soyad
                     </label>
-                    <input type="text" name="username" defaultValue={this.state.userdata.username} />
+                    <input
+                      type="text"
+                      name="username"
+                      defaultValue={this.state.userdata.username}
+                    />
                   </div>
 
                   <div className="form-group">
@@ -120,7 +130,11 @@ export default class ProfilePage extends Component {
                   </div>
 
                   <div>
-                    <button className="btn btn-sm btn-default" type="button" onClick={this.updateProfile}>
+                    <button
+                      className="btn btn-sm btn-default"
+                      type="button"
+                      onClick={this.updateProfile}
+                    >
                       <i className="fa fa-save" /> Kaydet
                     </button>
                   </div>

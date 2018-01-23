@@ -18,7 +18,10 @@
     "camelcase": "off",
     "class-methods-use-this": "off",
     "no-proto": "off",
-    "react/no-did-mount-set-state": "off"
+    "react/no-did-mount-set-state": "off",
+    "jsx-a11y/label-has-for": "off",
+    "no-return-assign": "off",
+    "array-callback-return": "off"
   },
   "env": {
     "browser": true,

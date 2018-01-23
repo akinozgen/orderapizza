@@ -14,7 +14,7 @@ export default (props) => {
           <div className="row">
             <div className="col-xs-6">
               <em>
-                Call now: 0 800 - <span className="text-uppercase">Pizza delivery</span>
+                Telefon: (0286) 217 77 47
               </em>
             </div>
             <LoginLinks authState={authState} />

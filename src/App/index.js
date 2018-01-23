@@ -17,30 +17,32 @@ import CheckoutPage from './checkout';
 import AuthMiddleware from '../Middleware/CheckAuth';
 import './index.css';
 
+const now = new Date();
+
 const footerData = {
   addressInfo: {
-    addressDescription: 'Adres açıklamsı',
+    addressDescription: 'Yalı Caddesi Vakıf iş Hanı Zemin Kat No: 16 PK:17020 Çanakkale/Merkez',
     workingHours: '09:00 - 23:00',
-    phoneNumber: '+90 850 254 25 52',
-    emailAddress: 'info@orderapizza.com.tr',
+    phoneNumber: '(0286) 217 77 47',
+    emailAddress: 'info@napolipizza17.com',
   },
   brandInfo: {
-    companyName: 'Order-@-Pizza',
-    companyDescription: 'Make an online pizza order',
+    companyName: '17 Napoli Pizza',
+    companyDescription: '30 Dakikaya Kapında',
   },
   siteInfo: {
     copyrightText: (
       <div>
-        2017 Tüm Hakları Saklıdır. By{' '}
+        {now.getFullYear().toString()} Tüm Hakları Saklıdır. By{' '}
         <a href="http://infusion.com.tr" target="_blank">
           Infusion
         </a>
         .💖 la yapıldı.
       </div>
     ),
-    facebookAddress: '#',
+    facebookAddress: 'https://www.facebook.com/17napolipizza/',
     twitterAddress: '#',
-    instagramAddress: '#',
+    instagramAddress: 'https://www.instagram.com/17napolipizza/',
   },
 };
 
@@ -154,10 +156,9 @@ export default class App extends React.Component {
               cart={this.state.cart}
               updateCart={this.updateCart}
             />
+            <Footer {...footerData} />
           </div>
         </Router>
-
-        <Footer {...footerData} />
       </div>
     );
   }

@@ -27,6 +27,7 @@ export default class CheckoutPage extends Component {
       user_id: userdata.id,
       totalPrice,
       redirect: null,
+      paymentMethod: null,
     };
 
     this.getAddresses = this.getAddresses.bind(this);
@@ -61,6 +62,7 @@ export default class CheckoutPage extends Component {
       })),
       delivery: Date.now() + (45 * 60000),
       price: this.state.totalPrice,
+      payment: this.state.paymentMethod,
     };
 
     if (payload.address_id < 0) {
@@ -77,6 +79,16 @@ export default class CheckoutPage extends Component {
       SweetAlert({
         title: 'Hata',
         text: 'Sepetinizde ürün bulunmuyor. Kontrol edip tekrar deneyin!',
+        icon: 'warning',
+        button: 'Tamam',
+      });
+      return;
+    }
+
+    if (payload.payment === null) {
+      SweetAlert({
+        title: 'Hata',
+        text: 'Ödeme tipini seçmediniz.',
         icon: 'warning',
         button: 'Tamam',
       });
@@ -165,6 +177,11 @@ export default class CheckoutPage extends Component {
                 addressData={this.state.addresses}
                 selectAddress={this.selectAddress}
               />
+              <select className="form-control" onChange={x => this.setState({ paymentMethod: x.target.value })}>
+                <option selected disabled>Ödeme Tipi Seçiniz</option>
+                <option value="Nakit">Nakit</option>
+                <option value="Banka/Kredi Kartı">Banka/Kredi Kartı</option>
+              </select>
             </BSPanel>
           </div>
 
