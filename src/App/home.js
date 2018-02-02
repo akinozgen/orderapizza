@@ -6,35 +6,37 @@ import Divider from '../Components/Divider';
 import CardContent from '../Components/CardContent';
 
 import GetMenus from '../Api/get_menus';
+import GetSliders from '../Api/get_sliders';
+import RandomInt from '../Api/random_int';
 
 const cardsData = [
   {
     svg: require('../Assets/circle-pizza.svg'),
     classProp: 'col-md-3',
-    title: 'Pizza Slices',
+    title: 'Taze Malzeme',
     content:
-      'When gliding by the Bashee isles we emerged at last upon the great South Sea, were it not for other things, I could have greeted.',
+      'Pizzalarımızın lezzeti tazeliğinde saklı! Sizler için özenle seçtiğimiz sebzelerimiz ve etlerimiz pizzlarımızı eşsiz kılıyor.',
   },
   {
     svg: require('../Assets/circle-tomato.svg'),
     classProp: 'col-md-3',
-    title: 'Tomato CSS',
+    title: 'Helal Etler',
     content:
-      'When gliding by the Bashee isles we emerged at last upon the great South Sea, were it not for other things, I could have greeted.',
+      'Kullandığımız etler helal et sertifikasına sahiptir. Sizleri kesinlikle rahatsız etmez. Yani güvenle yiyebilirsiniz!',
   },
   {
     svg: require('../Assets/circle-mush.svg'),
     classProp: 'col-md-3',
-    title: 'Mushroom HTML',
+    title: 'Uzman Ekip',
     content:
-      'When gliding by the Bashee isles we emerged at last upon the great South Sea, were it not for other things, I could have greeted.',
+      'Ustalarımız, garsonlarımız ve kuryelerimiz tecrübelerini sizlere en iyi hizmeti verebilmek için kullanıyorlar...',
   },
   {
     svg: require('../Assets/circle-olive.svg'),
     classProp: 'col-md-3',
-    title: 'Olives',
+    title: 'Temiz Mutfak',
     content:
-      'When gliding by the Bashee isles we emerged at last upon the great South Sea, were it not for other things, I could have greeted.',
+      'Tertemiz bir fırında, hijyen kurallarına dikkat edilen bir mutfakta, sağlıklı bir ortamda, hem lezzetli hem de sizi düşünen bir pizza...',
   },
 ];
 
@@ -43,38 +45,23 @@ export default class Home extends React.Component {
     super(props);
 
     this.state = {
-      sliderData: [
-        {
-          image: 'slider/1.jpg',
-          price: '5.00',
-          title: 'Parmak Patates',
-          ingredients: '',
-          button_href: '',
-          button_title: '',
-        },
-        {
-          image: 'slider/2.jpg',
-          price: '',
-          title: '',
-          ingredients: '',
-          button_href: '',
-          button_title: '',
-        },
-        {
-          image: 'slider/3.jpg',
-          price: '',
-          title: '',
-          ingredients: '',
-          button_href: '',
-          button_title: '',
-        },
-      ],
+      sliderData: [],
       specialBanners: [{}, {}],
     };
 
     this.getMenus = this.getMenus.bind(this);
+    this.getSliders = this.getSliders.bind(this);
 
     this.getMenus();
+    this.getSliders();
+  }
+
+  async getSliders() {
+    const response = await GetSliders();
+
+    if (response.getResult() === 'success') {
+      this.setState({ sliderData: response.getData() });
+    }
   }
 
   async getMenus() {
@@ -92,18 +79,28 @@ export default class Home extends React.Component {
           </div>
           <div className="container">
             <div className="row">
-              <SpecialBanner
-                image={this.state.specialBanners[0].image_path}
-                title={this.state.specialBanners[0].name}
-                content={this.state.specialBanners[0].description}
-                url="#!"
-              />
-              <SpecialBanner
-                image={this.state.specialBanners[1].image_path}
-                title={this.state.specialBanners[1].name}
-                content={this.state.specialBanners[1].description}
-                url="#!"
-              />
+              {(() => {
+                const random = RandomInt(0, this.state.specialBanners.length);
+                return (
+                  <SpecialBanner
+                    image={this.state.specialBanners[random].image_path}
+                    title={this.state.specialBanners[random].name}
+                    content={this.state.specialBanners[random].description}
+                    url="#!"
+                  />
+                );
+              })()}
+              {(() => {
+                const random = RandomInt(0, this.state.specialBanners.length);
+                return (
+                  <SpecialBanner
+                    image={this.state.specialBanners[random].image_path}
+                    title={this.state.specialBanners[random].name}
+                    content={this.state.specialBanners[random].description}
+                    url="#!"
+                  />
+                );
+              })()}
             </div>
           </div>
         </section>

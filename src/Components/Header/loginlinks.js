@@ -9,7 +9,12 @@ export default (props) => {
   let link1;
 
   if (authState && userdata) {
-    welcomeMessage = <span>Hoşgeldin, {userdata.username}</span>;
+    welcomeMessage = (
+      <span>
+        Hoşgeldin, {userdata.username}{' '}
+        <span className="label label-warning point">{userdata.point}</span>{' '}
+      </span>
+    );
     link1 = <Link to="/profile">Profil</Link>;
     link2 = <Link to="/logout">Çıkış</Link>;
   } else {

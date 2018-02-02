@@ -1,0 +1,29 @@
+.page-logo {
+  width: 220px;
+  height: 80px;
+  background-image: url("napolipizzalogo-siyah.png");
+}
+
+.fixed-pos .page-logo {
+  background-image: url("napolipizzalogo-beyaz.png") !important;
+}
+
+.point {
+  font-size: 12px;
+  font-weight: normal;
+  background-color: #ffc400;
+  text-shadow: 1px 0 2px rgba(0, 0, 0, 1);
+  border-radius: 50px;
+  height: 20px;
+  display: inline-block;
+  transform: scale(0.9);
+}
+
+.point::after {
+  content: "₺";
+  font-weight: bold;
+  font-size: 12px;
+  margin-left: 2px;
+  padding-top: 1px;
+  display: inline-block;
+}

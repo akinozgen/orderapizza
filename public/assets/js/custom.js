@@ -3,12 +3,12 @@
 
 'use strict';
 
-document.addEventListener('DOMNodeInserted', function(x) {
-  $(document).ready(function(e) {
+document.addEventListener('DOMNodeChanged', function (x) {
+  $(document).ready(function (e) {
     //top product slider
     var product_slider = $('#product-slider');
     if (product_slider.length == 1) {
-      product_slider.on('initialized.owl.carousel', function(e) {
+      product_slider.on('initialized.owl.carousel', function (e) {
         product_slider.find('.owl-dot').css('width', 100 / e.item.count + '%');
       });
       product_slider.owlCarousel({
@@ -91,7 +91,7 @@ document.addEventListener('DOMNodeInserted', function(x) {
     function productSizeHandler(el) {
       var input = el.find('input[type=radio]');
       if (input.is(':checked')) el.addClass('active');
-      input.on('change', function(e) {
+      input.on('change', function (e) {
         product_size_els.removeClass('active');
         el.addClass('active');
       });
@@ -110,7 +110,7 @@ document.addEventListener('DOMNodeInserted', function(x) {
       var product_detail_el = $(trigger_el.data('product-detail'));
       if (product_detail_el.length == 1) {
         if (!trigger_el.hasClass('active')) product_detail_el.hide();
-        trigger_el.on('click', function(e) {
+        trigger_el.on('click', function (e) {
           product_detail_triggers.removeClass('active');
           $(this).addClass('active');
           product_details.stop().slideUp('slow', 'linear');
@@ -134,7 +134,7 @@ document.addEventListener('DOMNodeInserted', function(x) {
     //form submit triggers
     var form_trigger_els = $('.form-submit-trigger');
     for (var i = 0, len = form_trigger_els.length; i < len; i++) {
-      form_trigger_els.eq(i).on('click', function(e) {
+      form_trigger_els.eq(i).on('click', function (e) {
         e.preventDefault();
         $(this)
           .parents('form')
@@ -163,7 +163,7 @@ document.addEventListener('DOMNodeInserted', function(x) {
       main_nav_placeholder_el.height(main_navigation_el.outerHeight());
 
       window_el
-        .on('scroll', function(e) {
+        .on('scroll', function (e) {
           if (window_el.scrollTop() > main_nav_breakpoint) {
             if (main_nav_fixed == false) {
               main_navigation_el.addClass('fixed-pos active');
@@ -178,7 +178,7 @@ document.addEventListener('DOMNodeInserted', function(x) {
                 main_navigation_el.removeClass('active');
                 main_navigation_in_el.one(
                   'transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd',
-                  function() {
+                  function () {
                     main_navigation_el.removeClass('fixed-pos');
                   },
                 );
@@ -190,7 +190,7 @@ document.addEventListener('DOMNodeInserted', function(x) {
             }
           }
         })
-        .on('resize', function(e) {
+        .on('resize', function (e) {
           if (main_nav_fixed) {
             main_navigation_el.removeClass('fixed-pos');
             main_nav_placeholder_el.height(main_navigation_el.outerHeight());
@@ -202,7 +202,7 @@ document.addEventListener('DOMNodeInserted', function(x) {
     //mobile menu open/close
     var main_menu = $('#main-navigation');
     var main_menu_button = $('#main-navigation-button');
-    main_menu_button.on('click', function(e) {
+    main_menu_button.on('click', function (e) {
       main_menu.toggleClass('active');
     });
 
@@ -216,10 +216,10 @@ document.addEventListener('DOMNodeInserted', function(x) {
 
     function submenuHandler(menu_item, submenu) {
       menu_item
-        .on('mouseenter', function(e) {
+        .on('mouseenter', function (e) {
           submenu.stop().slideDown();
         })
-        .on('mouseleave', function(e) {
+        .on('mouseleave', function (e) {
           submenu.stop().slideUp();
         });
     }
@@ -227,7 +227,7 @@ document.addEventListener('DOMNodeInserted', function(x) {
     //cart trigger
     var screen_cover = $('#screen-cover');
     var cart = $('#cart');
-    $('.cart-trigger').on('click', function(e) {
+    $('.cart-trigger').on('click', function (e) {
       e.preventDefault();
       var cart_top_pos = $(window).scrollTop();
       if (cart_top_pos + cart.height() > $(document).height()) {
@@ -239,7 +239,7 @@ document.addEventListener('DOMNodeInserted', function(x) {
       screen_cover.toggleClass('active');
     });
 
-    screen_cover.on('click', function(e) {
+    screen_cover.on('click', function (e) {
       cart.removeClass('active');
       screen_cover.removeClass('active');
     });
@@ -254,12 +254,12 @@ document.addEventListener('DOMNodeInserted', function(x) {
     function productPieceBtns(el) {
       var value;
       var input = el.find('input[type=text]');
-      el.find('.product-pieces-up').on('click', function(e) {
+      el.find('.product-pieces-up').on('click', function (e) {
         value = parseInt(input.val(), 10);
         if (!value || value < 0) value = 0;
         input.val(value + 1);
       });
-      el.find('.product-pieces-down').on('click', function(e) {
+      el.find('.product-pieces-down').on('click', function (e) {
         value = parseInt(input.val(), 10);
         if (!value || value < 1) value = 1;
         input.val(value - 1);
@@ -270,12 +270,12 @@ document.addEventListener('DOMNodeInserted', function(x) {
     var on_scroll_anims = $('.onscroll-animate');
     for (var i = 0, len = on_scroll_anims.length; i < len; i++) {
       var element = on_scroll_anims.eq(i);
-      element.one('inview', function(event, visible) {
+      element.one('inview', function (event, visible) {
         var el = $(this);
         var anim = el.data('animation') !== undefined ? el.data('animation') : 'fadeIn';
         var delay = el.data('delay') !== undefined ? el.data('delay') : 200;
 
-        var timer = setTimeout(function() {
+        var timer = setTimeout(function () {
           el.addClass(anim);
           clearTimeout(timer);
         }, delay);
@@ -310,17 +310,17 @@ document.addEventListener('DOMNodeInserted', function(x) {
 
     //in-page scrolling
     var scroll_top_offset = -77; //because of fixed menu on one-page
-    $('.scroll-to').on('click', function(e) {
+    $('.scroll-to').on('click', function (e) {
       $.scrollTo($(this).attr('href'), 800, { axis: 'y', offset: scroll_top_offset });
     });
 
     //scroll top
-    $('#scroll-top').on('click', function(e) {
+    $('#scroll-top').on('click', function (e) {
       $.scrollTo(0, 800, { axis: 'y' });
     });
 
     //contact form
-    $('#form-contact').on('submit', function(e) {
+    $('#form-contact').on('submit', function (e) {
       return form_to_ajax_request(
         $(this),
         ['name', 'email', 'subject', 'message'],
@@ -329,12 +329,12 @@ document.addEventListener('DOMNodeInserted', function(x) {
     });
 
     //newsletter form
-    $('#form-newsletter').on('submit', function(e) {
+    $('#form-newsletter').on('submit', function (e) {
       return form_to_ajax_request($(this), ['email'], ['email']);
     });
   });
 
-  $(window).load(function() {
+  $(window).load(function () {
     //hide page loader
     var page_loader_el = $('#page-loader');
     page_loader_el.addClass('page-loaded');
@@ -343,7 +343,7 @@ document.addEventListener('DOMNodeInserted', function(x) {
     if (!Modernizr.csstransitions) {
       page_loader_el.one(
         'transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd',
-        function() {
+        function () {
           page_loader_el.addClass('page-loader-hidden');
         },
       );
@@ -392,7 +392,7 @@ document.addEventListener('DOMNodeInserted', function(x) {
       if (active_filter.length == 1) {
         gallery_isotope.isotope({ filter: active_filter.data('filter') });
       }
-      gallery_isotope_filters.on('click', function(e) {
+      gallery_isotope_filters.on('click', function (e) {
         e.preventDefault();
         gallery_isotope_filters.removeClass('active');
         $(this).addClass('active');
@@ -447,7 +447,7 @@ document.addEventListener('DOMNodeInserted', function(x) {
   }
 
   function onPlayerReady() {
-    $('#video-main-play').on('click', function(e) {
+    $('#video-main-play').on('click', function (e) {
       e.preventDefault();
       video_main_el.addClass('active');
       video_main_player.playVideo();
@@ -456,18 +456,18 @@ document.addEventListener('DOMNodeInserted', function(x) {
 
   //placeholder fallback for old browsers
   if (!('placeholder' in document.createElement('input'))) {
-    $('input[placeholder], textarea[placeholder]').each(function() {
+    $('input[placeholder], textarea[placeholder]').each(function () {
       var val = $(this).attr('placeholder');
       if (this.value == '') {
         this.value = val;
       }
       $(this)
-        .focus(function() {
+        .focus(function () {
           if (this.value == val) {
             this.value = '';
           }
         })
-        .blur(function() {
+        .blur(function () {
           if ($.trim(this.value) == '') {
             this.value = val;
           }
@@ -475,10 +475,10 @@ document.addEventListener('DOMNodeInserted', function(x) {
     });
 
     // Clear default placeholder values on form submit
-    $('form').submit(function() {
+    $('form').submit(function () {
       $(this)
         .find('input[placeholder], textarea[placeholder]')
-        .each(function() {
+        .each(function () {
           if (this.value == $(this).attr('placeholder')) {
             this.value = '';
           }
@@ -501,12 +501,12 @@ document.addEventListener('DOMNodeInserted', function(x) {
     var error = false;
 
     //get values from fields
-    $.each(all_fields, function(index, value) {
+    $.each(all_fields, function (index, value) {
       fields_values[value] = form_el.find('*[name=' + value + ']').val();
     });
 
     //check if required fields are set
-    $.each(required_fields, function(index, value) {
+    $.each(required_fields, function (index, value) {
       if (!isSet(fields_values[value])) {
         var message = form_el.data(value + '-not-set-msg');
         if (!isSet(message)) message = form_el.data('all-fields-required-msg');
@@ -520,7 +520,7 @@ document.addEventListener('DOMNodeInserted', function(x) {
 
     //form data query object for ajax request
     var data_query = {};
-    $.each(all_fields, function(index, value) {
+    $.each(all_fields, function (index, value) {
       data_query[value] = fields_values[value];
     });
     data_query['ajax'] = true;
@@ -536,12 +536,12 @@ document.addEventListener('DOMNodeInserted', function(x) {
       cache: false,
       dataType: 'text',
     })
-      .fail(function() {
+      .fail(function () {
         //request failed
         setReturnMessage(form_el, form_el.data('ajax-fail-msg'));
         showReturnMessage(form_el);
       })
-      .done(function(message) {
+      .done(function (message) {
         //request succeeded
         if (!isSet(message)) {
           clearForm(form_el);
@@ -587,7 +587,7 @@ document.addEventListener('DOMNodeInserted', function(x) {
     form_el.find('.return-msg').addClass('show-return-msg');
   }
 
-  $('.return-msg').on('click', function(e) {
+  $('.return-msg').on('click', function (e) {
     $(this).removeClass('show-return-msg');
   });
 });

@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import Cart from '../Components/Cart';
 
 import Header from '../Components/Header';
@@ -21,9 +22,9 @@ const now = new Date();
 
 const footerData = {
   addressInfo: {
-    addressDescription: 'Yalı Caddesi Vakıf iş Hanı Zemin Kat No: 16 PK:17020 Çanakkale/Merkez',
+    addressDescription: 'Kemalpaşa Mah. Eski Balıkhane Sok. No:25 17000 Çanakkale',
     workingHours: '09:00 - 23:00',
-    phoneNumber: '(0286) 217 77 47',
+    phoneNumber: '+90 286 999 19 15',
     emailAddress: 'info@napolipizza17.com',
   },
   brandInfo: {
@@ -50,10 +51,6 @@ const navigationList = [
   {
     href: '/',
     title: 'Ana Sayfa',
-  },
-  {
-    href: '/about',
-    title: 'Hakkımızda',
   },
   {
     href: '/menus',
@@ -121,8 +118,9 @@ export default class App extends React.Component {
 
     return (
       <div>
-        <Router basename="/orderapizza/">
+        <Router basename="/">
           <div>
+            <ToastContainer />
             <Header
               navigationList={navigationList}
               authState={this.state.authState}
@@ -150,7 +148,9 @@ export default class App extends React.Component {
               component={() => <CheckoutPage toggleCartModal={this.toggleCartModal} />}
             />
             <Cart
-              ref={(cart) => { this.cart = cart; }}
+              ref={(cart) => {
+                this.cart = cart;
+              }}
               modalState={this.state.modalState}
               toggleCartModal={this.toggleCartModal}
               cart={this.state.cart}

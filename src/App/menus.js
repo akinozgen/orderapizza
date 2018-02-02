@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import GetMenus from '../Api/get_menus';
 import MenuElement from '../Components/Menu';
 
@@ -38,13 +39,14 @@ export default class MenusPage extends Component {
   }
 
   render() {
-    this.getMenus();
     return (
       <div className="menu-elements">
         <div className="container">
-          {this.state.menus.map((menu, index) => (
-            <MenuElement addToCart={this.addToCart} {...menu} key={index.toString()} />
-          ))}
+          <div className="row">
+            {this.state.menus.map((menu, index) => (
+              <MenuElement addToCart={this.addToCart} {...menu} key={index.toString()} />
+            ))}
+          </div>
         </div>
       </div>
     );

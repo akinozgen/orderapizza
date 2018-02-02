@@ -10,5 +10,7 @@
         "**/.*": true
     },
     "editor.formatOnSave": true,
-    "eslint.autoFixOnSave": true
+    "eslint.autoFixOnSave": true,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
 }

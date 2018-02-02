@@ -1,4 +1,5 @@
 import React from 'react';
+import './index.css';
 
 import NavigationItem from './navigationitem';
 import LoginLinks from './loginlinks';
@@ -31,7 +32,7 @@ export default (props) => {
               <div className="pull-left">
                 <div className="centered-columns">
                   <div className="centered-column">
-                    <img className="page-logo" alt="logo" src="assets/napolipizzalogo.png" />
+                    <div className="page-logo" />
                   </div>
                 </div>
               </div>
