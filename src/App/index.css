@@ -7,7 +7,9 @@ a {
   cursor: pointer;
 }
 
-.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
+.list-group-item.active,
+.list-group-item.active:focus,
+.list-group-item.active:hover {
   z-index: 1;
 }
 
@@ -18,4 +20,10 @@ a {
   line-height: normal;
   width: 75%;
   padding-top: 8px;
+}
+
+.label-menu {
+  display: inline-block;
+  margin-right: 2px;
+  margin-bottom: 2px;
 }

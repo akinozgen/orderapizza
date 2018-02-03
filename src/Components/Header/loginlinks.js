@@ -12,7 +12,7 @@ export default (props) => {
     welcomeMessage = (
       <span>
         Hoşgeldin, {userdata.username}{' '}
-        <span className="label label-warning point">{userdata.point}</span>{' '}
+        <span className="label label-warning point">{parseFloat(userdata.point).toFixed(2)}</span>{' '}
       </span>
     );
     link1 = <Link to="/profile">Profil</Link>;

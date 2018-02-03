@@ -24,7 +24,7 @@ export default (props) => {
           return (
             <tr>
               <td>{price} <i className="fa fa-try" /></td>
-              <td>{menus.map(menu => <span className="label label-success">{menu.count}x{menu.name}</span>)}</td>
+              <td>{menus.map(menu => <span className="label label-success label-menu">{menu.count}x{menu.name}</span>)}</td>
               <td>{delivery}</td>
               <td>
                 {((info) => {

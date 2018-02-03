@@ -128,7 +128,7 @@ export default class CheckoutPage extends Component {
         button: 'Tamam',
         icon: 'success',
       }).then(() => {
-        toast(`Tebrikler ${point} puan kazandınız.`);
+        toast(`Tebrikler ${parseFloat(point).toFixed(2)} puan kazandınız.`);
         this.setState({ redirect: <Redirect to="/profile" /> });
         localStorage.setItem('cart', JSON.stringify([]));
         localStorage.removeItem('discounted');
